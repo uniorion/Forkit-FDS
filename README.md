@@ -53,12 +53,5 @@
  - react-addons-perf 추가
 
 6.3 프로젝트 실행
- - development
- ```shell
- npm start
- ```
- - production
- ```shell
- npm run build
- #실행 후 build 폴더의 내용을 서버로 복사
- ```
+ - development : ```npm start```
+ - production : ```npm run build``` 실행 후 build 폴더의 내용을 서버로 복사
