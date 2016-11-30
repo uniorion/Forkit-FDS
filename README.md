@@ -55,11 +55,20 @@
 
 #### 3.2.3 JavaScript  
 
-
 ## 4. Work flow
 
 
 ## 5. 기술스택
+
+### 5.1 언어 및 주요 기술, 도구
+ - HTML
+ - Sass
+ - ES6
+ - React
+ - Webpack
+
+### 5.2 기타
+ - react-router : React 라우터 구성
 
 
 ## 6. 프로젝트 환경
@@ -80,5 +89,3 @@
  - development : ```npm start```
  - production : ```npm run build``` 실행 후 build 폴더의 내용을 서버로 복사
 
-
-## 7. 코딩 컨벤션
