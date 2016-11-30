@@ -9,9 +9,9 @@
 > 3. [가이드](#3-가이드)  
 >   3.1 [디자인 가이드](#31-디자인-가이드)  
 >   3.2 [코드 가이드](#32-코드-가이드)  
->   &nbsp;&nbsp;3.2.1 [HTML]()  
->   &nbsp;&nbsp;3.2.2 [CSS]()  
->   &nbsp;&nbsp;3.2.3 [Javascript]()   
+>   &nbsp;&nbsp;3.2.1 [HTML](#321-html)  
+>   &nbsp;&nbsp;3.2.2 [CSS](#322-css)  
+>   &nbsp;&nbsp;3.2.3 [JavaScript](#323-javascript)   
 > 4. [Work flow](#4-Work-flow)  
 > 5. [기술스택](#5-기술스택)  
 > 6. [프로젝트 환경](#6-프로젝트-환경)
@@ -45,14 +45,15 @@
   | 거터       | 16px          | 24px          |
   | 컬럼수     | 6             | 12            |
   | 컬럼넓이   | 40px          | 78px          |
-
-### 3.2 코드 가이드
 
-#### 3.2.1 HTML 
+  
+### 3.2 코드 가이드   
 
-#### 3.2.2 CSS
+#### 3.2.1 HTML  
 
-#### 3.2.3 JavaScript
+#### 3.2.2 CSS  
+
+#### 3.2.3 JavaScript  
 
 
 ## 4. Work flow
@@ -62,19 +63,20 @@
 
 
 ## 6. 프로젝트 환경
-6.1 프로젝트 환경 구성
+
+### 6.1 프로젝트 환경 구성
  - webpack : 웹 번들러
  - babel loader : ES6 문법 사용
  - sass loader : Sass 문법 사용
  - eslint : 문법, 코딩 규칙, 접근성 검사
  - react-addons-perf : 성능 검사
 
-6.2 Boilerplate 사용
+### 6.2 Boilerplate 사용
  - create-react-app 설치
  - eject 후에 sass-loader, eslint 설정
  - react-addons-perf 추가
 
-6.3 프로젝트 실행
+### 6.3 프로젝트 실행
  - development : ```npm start```
  - production : ```npm run build``` 실행 후 build 폴더의 내용을 서버로 복사
 
