@@ -19,21 +19,19 @@
 >   5.2 [기타 도구](#52-기타-도구)
 >   5.3 [Boilerplate](#53-boilerplate)
 > 6. [프로젝트 실행](#6-프로젝트-실행)
-
+<br><br>
 ---
-
+<br><br>
 ## 1. 개요
 
 * 패스트캠퍼스의 4개 스쿨이 한 팀을 이루어 하나의 주제로 진행하는 프로젝트.
 * 본 스쿨(임진호, 이진기)이 포함된 3조는 __'맛집'__ 을 주제로 선정하였으며 서비스명은 __forkIt__ 으로 정함.
-
-
+<br><br>
 ## 2. 일정
 
 * 2016.11.28 ~ 2016.12.16
 * Scrum - 1주 단위 Backlog 작성, 4일 단위 Sprint
-
-
+<br><br>
 ## 3. 가이드
 
 ### 3.1 디자인 가이드
@@ -48,8 +46,7 @@
   | 거터       | 16px          | 24px          |
   | 컬럼수     | 6             | 12            |
   | 컬럼넓이   | 40px          | 78px          |
-
-  
+<br>
 ### 3.2 코드 가이드
 
 #### 3.2.1 HTML
@@ -64,7 +61,7 @@
  3. src, for, type, href, value
  4. title, alt : 접근성 관련
  5. aria, role : 접근성 확장 관련
-
+<br>
 #### 3.2.2 CSS/Sass
 
 ##### 기본
@@ -91,11 +88,11 @@
  4. 시각적 꾸밈 요소(테두리, 배경 등)
  5. @include
  6. 중첩 선택자
-
+<br>
 #### 3.2.3 JavaScript
  - ESLint 설정을 기본으로 따름.
  - 내부에서만 사용하는 변수, 메서드는 이름 앞에 _를 붙임.(예외 : props, state의 멤버 이름은 _를 붙이지 않는다.)
-
+<br>
 #### 3.2.4 ESLint 설정
  - 기본적으로 Github에 공개되어있는 [facebookincubator/create-react-app](https://github.com/facebookincubator/create-react-app/blob/master/packages/eslint-config-react-app/index.js)의 설정을 따름
  - 들여쓰기 공백 2칸
@@ -103,15 +100,13 @@
  - semi colon 항상 사용
  - jsx-a11y/recommended 사용
  - camelCase 사용
-
-
+<br><br>
 ## 4. Github Work flow
  - upstream에 개발 통합용 브랜치 생성 : develop
  - 브랜치를 Fork 한 후에 개발
  - 개발 중인 내용을 `WIP`(Working In Progress)를 제목에 붙여 Pull request에서 리뷰가 가능하도록 함
  - `WIP`가 없는 Pull request에 대해서 리뷰 후 특이사항이 없으면 Approve 한 후에 Merge
-
-
+ <br><br>
 ## 5. 기술스택
 
 ### 5.1 언어 및 주요 기술, 도구
@@ -134,7 +129,7 @@
  - create-react-app 설치
  - eject 후에 sass-loader, eslint 설정
  - react-addons-perf 추가
-
+<br><br>
 ### 6. 프로젝트 실행
  - development : ```npm start```
  - production : ```npm run build``` 실행 후 build 폴더의 내용을 서버로 복사
