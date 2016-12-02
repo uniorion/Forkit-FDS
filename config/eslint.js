@@ -17,6 +17,7 @@
 // It would probably be more strict.
 
 var WARNING = 1;
+var ERROR = 2;
 
 module.exports = {
   root: true,
@@ -54,6 +55,8 @@ module.exports = {
       }
     }
   },
+
+  extends: ['plugin:jsx-a11y/recommended'],
 
   rules: {
     // http://eslint.org/docs/rules/
@@ -199,6 +202,9 @@ module.exports = {
     'jsx-a11y/img-redundant-alt': WARNING,
     'jsx-a11y/no-access-key': WARNING,
 
+    'camelcase': [
+      ERROR, { "properties": "always" }
+    ],
     'indent': [
       'error',
       2
