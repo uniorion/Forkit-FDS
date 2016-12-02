@@ -15,13 +15,13 @@ $bp-desktop: 1024px;
   }
 }
 //  각 디바이스 환경에서 감춤
-@include mobile{
+@include mobile {
   .m-hidden {
     display: none;
   }
 }
 
-@include desktop{
+@include desktop {
   .d-hidden{
     display: none;
   }  
@@ -37,11 +37,12 @@ $bp-desktop: 1024px;
  * $is-static             : 레이아웃 타입을 선택(true: static, false: fluid)
  * $container-name        : grid system을 포함하는 컨테이너 요소의 class 명
  * $grid-setting-values   : grid 설정 값. list
- *               item-1   : 컨테이너의 넓이
- *               item-2   : 컬럼 수
- *               item-3   : 컬럼 하나의 넓이
- *               item-4   : 컨테이너 안쪽으로의 좌우 여백
- *               item-5   : 거터 넓이(양쪽)
+ * $grid-wrap-width       : 컨테이너의 넓이
+ * $grid-wrap-max-width   : 컨테이너의 최대넓이
+ * $columns               : 컬럼 수
+ * $column-width          : 컬럼 하나의 넓이
+ * $lr-margin             : 컨테이너 안쪽으로의 좌우 여백
+ * $gutter                : 거터 넓이(양쪽)
  *
  * === Guide 관련 변수
  * $is-use-guide          : guide 사용 여부
@@ -51,8 +52,8 @@ $bp-desktop: 1024px;
  * $guide-baseline-color  : baseline guide의 색상
  */
 
-$is-static            : true;
-$container-name       : 'container';
+$is-static            : false;
+$container-name       : 'grid-wrap';
 
 $is-use-guide          : true;
 $guide-class-name      : 'show-guide';
@@ -60,29 +61,19 @@ $guide-columns-color   : rgba(45, 205, 160, 0.2);
 $guide-baseline-height : 10px;
 $guide-baseline-color  : #7400ff;
 
-$grid-setting-values: ( 
-  (750px, 6, 100px, 20px, 22px),
-  (1126px, 12, 70px, 0px, 26px) 
-);
+// Mobile Layout Setting
+$grid-wrap-width      : 320px;
+$grid-wrap-max-width  : 1024px;
+$columns              : 6;
+$column-width         : 32px;
+$lr-margin            : 14px;
+$gutter               : 20px;
 
-$container-width      : null;
-$columns              : null;
-$column-width         : null;
-$lr-margin            : null;
-$gutter               : null;
-
-@each $values in $grid-setting-values {
-  @warn '#{$values)}: #{type-of($values)}';
-
-  $container-width      : nth($values, 1);
-  $columns              : nth($values, 2);
-  $column-width         : nth($values, 3);
-  $lr-margin            : nth($values, 4);
-  $gutter               : nth($values, 5);
-
-  @if $is-use-guide {
+@if $is-use-guide {
+  @include mobile {
     .#{$container-name} {
-      width: if($is-static, $container-width, 100%);
+      width: if($is-static, $grid-wrap-width, 100%);
+      max-width: $grid-wrap-max-width;
     }
     .#{$container-name}[class~=#{$guide-class-name}] {
       position: relative;
@@ -97,7 +88,39 @@ $gutter               : null;
     }    
     .#{$container-name}[class~=#{$guide-class-name}]::before {
       background: #{makeBaseline()}, #{makeColumnGradient()};
-      background-size: 1px #{$guide-baseline-height}, if($is-static, $container-width, 100%) 1px;
+      background-size: 1px #{$guide-baseline-height}, if($is-static, $grid-wrap-width, 100%) 1px;
+    }
+  }
+}
+
+// Desktop Layout Setting
+$grid-wrap-width      : 1126px;
+$grid-wrap-max-width  : 1126px;
+$columns              : 12;
+$column-width         : 70px;
+$lr-margin            : 0px;
+$gutter               : 26px;
+
+@if $is-use-guide {
+  @include desktop {
+    .#{$container-name} {
+      width: if($is-static, $grid-wrap-width, 100%);
+      max-width: $grid-wrap-max-width;
+    }
+    .#{$container-name}[class~=#{$guide-class-name}] {
+      position: relative;
+    }
+    .#{$container-name}[class~=#{$guide-class-name}]::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      z-index: 100000;
+      width: 100%;
+      min-height: 100%;
+    }    
+    .#{$container-name}[class~=#{$guide-class-name}]::before {
+      background: #{makeBaseline()}, #{makeColumnGradient()};
+      background-size: 1px #{$guide-baseline-height}, if($is-static, $grid-wrap-width, 100%) 1px;
     }
   }
 }

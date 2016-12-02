@@ -35,7 +35,7 @@
   }
   // Fluide Guide
   @else {
-    $column-gradient: 'transparent #{percentage($lr-margin / $container-width)}';
+    $column-gradient: 'transparent #{percentage($lr-margin / $grid-wrap-width)}';
 
     @for $i from 1 through $columns {
       $offset-start:  $lr-margin + ((($i - 1) * $column-width) + (($i - 1) * $gutter));
@@ -47,9 +47,9 @@
         $gutter-end:    $lr-margin + (($i * $column-width) + ($i * $gutter));
       }
 
-      $offset-start:  percentage($offset-start / $container-width);
-      $offset-end:    percentage($offset-end / $container-width);
-      $gutter-end:    percentage($gutter-end / $container-width);
+      $offset-start:  percentage($offset-start / $grid-wrap-width);
+      $offset-end:    percentage($offset-end / $grid-wrap-width);
+      $gutter-end:    percentage($gutter-end / $grid-wrap-width);
 
       $column-gradient: '#{$column-gradient}, #{$guide-columns-color} #{$offset-start}, #{$guide-columns-color} #{$offset-end}, transparent #{$offset-end}, transparent #{$gutter-end}';
     }
