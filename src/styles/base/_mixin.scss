@@ -1,0 +1,25 @@
+// _variables.scss 에 변수값 설정.
+
+// 반응형 구현을 위한 media-query.
+@mixin mobile {
+  @media (max-width: #{$bp-desktop}) {
+    @content;
+  }
+}
+@mixin desktop{
+  @media (min-width: #{$bp-desktop + 1}) {
+    @content;
+  }
+}
+
+// 숨김 설정.
+@include mobile {
+  .m-hidden {
+    display: none;
+  }
+}
+@include desktop {
+  .d-hidden{
+    display: none;
+  }  
+}

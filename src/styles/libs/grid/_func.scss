@@ -59,3 +59,17 @@
 
   @return $column-gradient;
 }
+
+/* divisor(num)
+ * 나누어 떨어지는 수를 리스트로 반환
+ */ 
+@function divisor($num) {
+  $list: 1;
+
+  @for $i from 2 through $num {
+    @if ($num % $i) == 0 {
+      $list:  append($list, $i, comma);
+    } 
+  } 
+  @return $list;
+}
