@@ -55,6 +55,7 @@ module.exports = {
   // In production, we only want to load the polyfills and the app code.
   entry: [
     require.resolve('./polyfills'),
+    path.resolve('./src/styles/index.scss'),
     paths.appIndexJs
   ],
   output: {
@@ -119,8 +120,7 @@ module.exports = {
       // in the main CSS file.
       {
         test: /\.(sass|scss)$/,
-        include: paths.appSrc,
-        loaders: ['style', 'css', 'sass']
+        loader: ExtractTextPlugin.extract('style', 'css?importLoaders=1&-autoprefixer!sass!postcss')
       },
       {
         test: /\.css$/,
