@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import FoodMenu from './FoodMenu';
 import ReviewList from '../Review/ReviewList';
+import Map from '../Map/Map';
 // import {Link} from 'react-router';
 
 class RestaurantInfo extends Component
@@ -36,6 +37,7 @@ class RestaurantInfo extends Component
         </dl>
         <FoodMenu />
         <ReviewList />
+        <Map></Map>
       </section>
     );
   }

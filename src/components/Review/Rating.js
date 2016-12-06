@@ -10,6 +10,7 @@ class Rating extends Component
         <span>&#9734;</span>
         <span>&#9734;</span>
         <span>&#9734;</span>
+        <input type="hidden" />
       </div>
     );
   }

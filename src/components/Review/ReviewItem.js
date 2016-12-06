@@ -8,16 +8,18 @@ class ReviewItem extends Component
     return (
       <li>
         <section>
+          <img src="http://lorempixel.com/100/100/people/1" alt="" /> <span>NickName</span>
           <Rating />
-          <h4>리뷰 타이틀</h4>
           <div>
             <button>like 123</button>
             <button>dislike 50</button>
             <button>수정하기</button>
           </div>
+          <h4>리뷰 타이틀</h4>
           <p>
             육즙 대박 방풍나물 깻잎절임에 와사비 갈치속젓 넣어 싸먹으니 이곳은 천국 양이 적어 그후에 목살 1인분 먹었는데 나쁘지않았지만 삼겹살만큼은 아니었고.. 그래도 맛있 게 잘먹고 왔어여! 육즙 대박 방풍나물 깻잎절임에 와사비 갈치속젓 넣어 싸먹으니 이곳은 천국 양이 적어 그후에 목살 1인분 먹었는데 나쁘지않았지만 삼겹살만큼은 아니 었고.. 그래도 맛있게 잘먹고 왔어여!
           </p>
+          {/*모바일/데스크탑 사이즈에 따라 개수 바뀜*/}
           <ul>
             <li><img src="http://lorempixel.com/200/150/food/5" alt="" /></li>
             <li><img src="http://lorempixel.com/200/150/food/6" alt="" /></li>
