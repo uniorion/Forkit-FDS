@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Link, Router, hashHistory} from 'react-router';
+import {Link, Router, browserHistory} from 'react-router';
 
 //대문페이지
 //SearchBar, 로고, UserInfo, 배경이미지로, Footer 구성
@@ -16,7 +16,7 @@ class IndexPage extends Component {
   }
 
   _searchRestaurants(){
-    hashHistory.push('/search');
+    browserHistory.push('/search');
   }
 }
 
