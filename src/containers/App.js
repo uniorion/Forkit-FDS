@@ -8,15 +8,15 @@ import { Link } from 'react-router';
 class App extends Component {
   render() {
     return (
-      <div>
-        {/*<Link to="/">Index</Link>*/}
-        <ul>
-          {/*<li><Link to="/reviewList">List</Link></li>*/}
-          {/*<li><Link to={{ pathname: '/list', query: { foo: 'bar' } }}>/list?foo=bar</Link></li>*/}
-          {/*<li><Link to="/mypage">MyPage</Link></li>*/}
-        </ul>
-        {this.props.children}
-      </div>
+      // <div>
+        // {/*<Link to="/">Index</Link>*/}
+        // {/*<ul>*/}
+        //   {/*<li><Link to="/reviewList">List</Link></li>*/}
+        //   {/*<li><Link to={{ pathname: '/list', query: { foo: 'bar' } }}>/list?foo=bar</Link></li>*/}
+        //   {/*<li><Link to="/mypage">MyPage</Link></li>*/}
+        // {/*</ul>*/}
+        this.props.children
+      // </div>
 
       
       // <div className="App App-sass">

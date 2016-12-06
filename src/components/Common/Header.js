@@ -9,10 +9,10 @@ class Header extends Component
 {
   render(){
     return (
-      <div>
+      <header>
         <Link to="/">Logo</Link>
         <Link to="mypage">My Page</Link>
-      </div>
+      </header>
     );
   }
 }
