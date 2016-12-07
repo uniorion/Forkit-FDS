@@ -43,7 +43,6 @@ $guide-baseline-color  : #7400ff;
 // =============================================================
 
 // flex box 아이템의 정렬
-//    - issue : 거터가 있는 그리드에서는 between과 한 컬럼에 대한 left, right만 정상 동작함.
 .row[class*="grid-left"]    { justify-content: flex-start;    }
 .row[class*="grid-center"]  { justify-content: center;        }
 .row[class*="grid-right"]   { justify-content: flex-end;      }
@@ -110,25 +109,11 @@ $gutter               : 20px;
   flex: 1;
 }
 
-// 총 컬럼수의 약수 > 정의할 cell 모듈
-// 6 => 1, 2, 3, 6
-$divisors: divisor($columns);
+$numList: makeList($columns);
 
-// 양쪽 마진을 제외한 콘텐츠의 넓이
-$content-width: $grid-wrap-width - ($lr-margin * 2);
-
-@warn $content-width;
-
-@each $key in $divisors { 
+@each $key in $numList { 
   @for $i from 1 through $key {
-    // 컬럼 하나의 넓이
-    $one-col-width: ( ($column-width * ($columns / $key)) );
-    
-    // 선택한 총 넓이
-    $total-col-width: (($one-col-width *$i) );
-    
     .cell-m-#{$i}-#{$key} {
-      // flex: 0 0 #{percentage(($total-col-width) / $content-width)};
       flex: 0 0 #{percentage($i / $key)};
     }
   }
@@ -179,23 +164,11 @@ $gutter               : 26px;
     flex: 1;
   }
 
-  // 총 컬럼수의 약수 > 정의할 cell 모듈
-  // 12 => 1, 2, 3, 4, 6, 12
-  $divisors: divisor($columns);
+  $numList: makeList($columns);
 
-  // 양쪽 마진을 제외한 콘텐츠의 넓이
-  $content-width: $grid-wrap-width - ($lr-margin * 2);
-
-  @each $key in $divisors { 
+  @each $key in $numList { 
     @for $i from 1 through $key {
-      // 컬럼 하나의 넓이
-      $one-col-width: ( ($column-width * ($columns / $key)) + ($gutter * ($columns / $key  - 1)) );
-      
-      // 선택한 총 넓이
-      $total-col-width: (($one-col-width *$i) + ($gutter * ($i - 1)));
-      
       .cell-d-#{$i}-#{$key} {
-        // flex: 0 0 #{percentage(($total-col-width) / $content-width)};
         flex: 0 0 #{percentage($i / $key)};
       }
     }

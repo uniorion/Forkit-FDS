@@ -67,9 +67,20 @@
   $list: 1;
 
   @for $i from 2 through $num {
-    // @if ($num % $i) == 0 {
-    //   $list:  append($list, $i, comma);
-    // } 
+    @if ($num % $i) == 0 {
+      $list:  append($list, $i, comma);
+    } 
+  } 
+  @return $list;
+}
+
+/* makeList(num)
+ * 1부터 num까지 수를 list로 반환
+ */ 
+@function makeList($num) {
+  $list: 1;
+
+  @for $i from 2 through $num {
     $list:  append($list, $i, comma);
   } 
   @return $list;
