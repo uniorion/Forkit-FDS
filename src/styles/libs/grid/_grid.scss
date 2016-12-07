@@ -71,7 +71,7 @@ $grid-wrap-width      : 320px;
 $grid-wrap-max-width  : 1024px;
 $columns              : 6;
 $column-width         : 32px;
-$lr-margin            : 14px;
+$lr-margin            : 0px;
 $gutter               : 20px;
 
 .#{$container-name} {
@@ -100,9 +100,9 @@ $gutter               : 20px;
 
 .row {
   display: flex;
-  justify-content: space-between; // default
+  // justify-content: space-between; // default
   flex-wrap: wrap;
-  margin: 0px #{percentage($lr-margin/$grid-wrap-width)};
+  margin: 0px #{$lr-margin};
 }
 
 [class*="cell-"] {
@@ -117,16 +117,19 @@ $divisors: divisor($columns);
 // 양쪽 마진을 제외한 콘텐츠의 넓이
 $content-width: $grid-wrap-width - ($lr-margin * 2);
 
+@warn $content-width;
+
 @each $key in $divisors { 
   @for $i from 1 through $key {
     // 컬럼 하나의 넓이
-    $one-col-width: ( ($column-width * ($columns / $key)) + ($gutter * ($columns / $key  - 1)) );
+    $one-col-width: ( ($column-width * ($columns / $key)) );
     
     // 선택한 총 넓이
-    $total-col-width: (($one-col-width *$i) + ($gutter * ($i - 1)));
+    $total-col-width: (($one-col-width *$i) );
     
     .cell-m-#{$i}-#{$key} {
-      flex: 0 0 #{percentage(($total-col-width) / $content-width)};
+      // flex: 0 0 #{percentage(($total-col-width) / $content-width)};
+      flex: 0 0 #{percentage($i / $key)};
     }
   }
 }
@@ -167,7 +170,7 @@ $gutter               : 26px;
 
   .row {
     display: flex;
-    justify-content: space-between;
+    // justify-content: space-between;
     flex-wrap: wrap;
     margin: 0px #{percentage($lr-margin/$grid-wrap-width)};
   }
@@ -192,7 +195,8 @@ $gutter               : 26px;
       $total-col-width: (($one-col-width *$i) + ($gutter * ($i - 1)));
       
       .cell-d-#{$i}-#{$key} {
-        flex: 0 0 #{percentage(($total-col-width) / $content-width)};
+        // flex: 0 0 #{percentage(($total-col-width) / $content-width)};
+        flex: 0 0 #{percentage($i / $key)};
       }
     }
   }
