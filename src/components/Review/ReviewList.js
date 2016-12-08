@@ -8,11 +8,7 @@ class ReviewList extends Component
     return (
       <article>
         <h3>리뷰(33)</h3>
-        {/*
-        <div>
-          전체(33) | 5점(4) | 4점(10) | 3점(5) | 2점(10) | 1점(3)
-        </div>
-        */}
+        {/*<div>전체(33) | 5점(4) | 4점(10) | 3점(5) | 2점(10) | 1점(3)</div>*/}
         <ul>
           <ReviewItem />
           <ReviewItem />

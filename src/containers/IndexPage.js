@@ -14,7 +14,6 @@ class IndexPage extends Component {
       </div>
     );
   }
-
   _searchRestaurants(){
     browserHistory.push('/search');
   }
