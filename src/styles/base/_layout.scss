@@ -16,7 +16,10 @@
   background: #98abcd;
 }
 .container {
-  margin: 0 14px;
+  @include margin(left 14px right 14px);
+  @include desktop {
+    @include margin(left 0 right 0)
+  };
 }
 .main {
   margin-left: auto;

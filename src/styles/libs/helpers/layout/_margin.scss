@@ -1,0 +1,13 @@
+$margin-properties: top, right, bottom, left !default;
+
+@mixin margin($properties) {
+  @if type-of($properties) != list {
+    @error "전달인자 유형은 list 타입이어야 합니다.";
+  }
+  @each $property in $margin-properties {
+    $index: index($properties, $property);
+    @if $index {
+      margin-#{$property}: nth($properties, $index + 1);
+    }
+  }
+}
