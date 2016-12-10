@@ -1,1 +1,21 @@
-//Header, 지도, 페이징, 검색/정렬 필터, 맛집목록으로 구성됨
+import React, {Component} from 'react';
+
+import Map from '../Map/Map';
+import Search from './Search';
+import RestaurantItem from './RestaurantItem';
+import Pager from '../Pager/Pager';
+
+class RestaurantList extends Component {
+  render () {
+    return (
+      <main>
+        <Map />
+        <Search />
+        <RestaurantItem />
+        <Pager />
+      </main>
+    );
+  }
+}
+
+export default RestaurantList;

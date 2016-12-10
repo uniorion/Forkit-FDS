@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import Header from '../components/Common/Header';
+
+import Header from '../components/Common/Header'; 
+import RestaurantList from '../components/Search/RestaurantList';
 
 class Search extends Component{
   render(){
     const query = this.props.location.query;
     const page = query.page || 1;
     const pageSize = query.pageSize || 10;
+
     return (
       <div>
         <Header />
@@ -16,7 +19,11 @@ class Search extends Component{
           <li><Link to="restaurant/2">2번</Link></li>
           <li><Link to="restaurant/3">3번</Link></li>
         </ul>
+        
+        <RestaurantList />
+        
       </div>
+
     );
   }
 }
