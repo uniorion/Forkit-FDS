@@ -4,32 +4,41 @@ import Rating from './Rating';
 
 class ReviewItem extends Component
 {
+  renderImages(images){
+    let imageList = [];
+    const desktopMax = 2;
+    const max = desktopMax;
+    const length = images.length >= max ? max : images.length; 
+    for(let i = 0; i < length; i++){
+      let image = images[i];
+      imageList.push(<li className={length-1 === i ? 'overlay' : null } key={image.id}><img src={image.img_t} alt="" /></li>);
+    }
+    return imageList;
+  }
+
   render(){
+    const { review } = this.props;
+    let imgCount = 0;
     return (
       <li>
-        <section>
-          <img src="http://lorempixel.com/100/100/people/1" alt="" /> <span>NickName</span>
-          <Rating />
-          <div>
-            <button>like 123</button>
-            <button>dislike 50</button>
-            <button>수정하기</button>
-          </div>
-          <h4>리뷰 타이틀</h4>
-          <p>
-            육즙 대박 방풍나물 깻잎절임에 와사비 갈치속젓 넣어 싸먹으니 이곳은 천국 양이 적어 그후에 목살 1인분 먹었는데 나쁘지않았지만 삼겹살만큼은 아니었고.. 그래도 맛있 게 잘먹고 왔어여! 육즙 대박 방풍나물 깻잎절임에 와사비 갈치속젓 넣어 싸먹으니 이곳은 천국 양이 적어 그후에 목살 1인분 먹었는데 나쁘지않았지만 삼겹살만큼은 아니 었고.. 그래도 맛있게 잘먹고 왔어여!
-          </p>
-          {/*모바일/데스크탑 사이즈에 따라 개수 바뀜*/}
-          <ul>
-            <li><img src="http://lorempixel.com/200/150/food/5" alt="" /></li>
-            <li><img src="http://lorempixel.com/200/150/food/6" alt="" /></li>
-            <li><img src="http://lorempixel.com/200/150/food/7" alt="" /></li>
-            <li><img src="http://lorempixel.com/200/150/food/8" alt="" /></li>
-            <li><img src="http://lorempixel.com/200/150/food/9" alt="" /></li>
-            <li><img src="http://lorempixel.com/200/150/food/10" alt="" /></li>
-            <li className="overay"><Link to=""><img src="http://lorempixel.com/200/150/food/1" alt="" /></Link></li>
-          </ul>
-        </section>
+        <img src='http://lorempixel.com/100/100/people/1' alt="" /> <span>{review.author}</span>
+        <Rating />
+        <div>
+          <button>like {review.like}</button>
+          <button>dislike {review.dislike}</button>
+          <button>수정하기</button>
+        </div>
+        <h4>{review.title}</h4>
+        <p>
+          {review.content}
+        </p>
+        {/* 모바일/데스크탑 사이즈에 따라 개수 바뀜 */}
+        <ul className="review-item-img-list">
+          {
+            review.images && this.renderImages(review.images)
+          }
+          
+        </ul>
       </li>
     );
   }
