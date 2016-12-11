@@ -4,11 +4,11 @@ import Slider from 'react-slick';
 
 class PhotoCarousel extends Component
 {
-  constructor(props){
-    super(props);
+  // constructor(props){
+    // super(props);
     // this.next = this.next.bind(this);
     // this.previous = this.previous.bind(this);
-  }
+  // }
   next(){
     this.refs.slider.slickNext();
   }
@@ -24,16 +24,19 @@ class PhotoCarousel extends Component
     //     <img src="http://lorempixel.com/400/300/food/4" alt="" />
     //   </article>
     // );
+    const desktopMax = 4;
+    const moreMax = this.props.images ? this.props.images.length > desktopMax : false;
+
     let settings = {
       accessibility: true,
       // adaptiveHeight: true,
       arrows: false,
       dots: true,
       // dotsClass: 'slider-dot',
-      infinite: false,
+      infinite: moreMax,
       speed: 500,
       slidesToShow: 4,
-      slidesToScroll: 1,
+      slidesToScroll: 4,
       cssEase: 'ease',
       easing: 'ease-out',
       touchThreshold: 5,
