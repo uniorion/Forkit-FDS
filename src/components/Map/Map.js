@@ -4,7 +4,7 @@ class Map extends Component
 {
   render(){
     return (
-      <article>
+      <article className={this.props.className}>
         Map
       </article>
     );

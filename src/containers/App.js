@@ -3,6 +3,7 @@ import logo from '../images/logo.svg';
 // import './App.css';
 // import './App.scss';
 import { Link } from 'react-router';
+import { connect } from 'react-redux';
 
 //Container 역할
 class App extends Component {
@@ -33,4 +34,16 @@ class App extends Component {
   }
 }
 
-export default App;
+// export default App;
+
+// const mapStateToProps = (state) => ({
+//     // propname: state.property
+//   text: 'abc'
+// });
+
+// mapDispatchToProps({
+//   //  propname: actionName
+//   request: requestRestaurants
+// })
+
+export default connect()(App);

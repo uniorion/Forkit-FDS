@@ -1,46 +1,62 @@
-import React, {Component} from 'react';
+import React, { PropTypes } from 'react';
 import FoodMenu from './FoodMenu';
 import ReviewList from '../Review/ReviewList';
 import Map from '../Map/Map';
 // import {Link} from 'react-router';
 
-class RestaurantInfo extends Component
-{
-  render(){
-    return (
-      <section>
-        <h3>새벽집</h3>
-        <p>텍스트 맛집 설명영역</p>
+const RestaurantInfo = ({ restaurant }) => (
+  <section className="grid-wrap">
+    {/* 맛집 상세정보 */}
+    <div className="row">
+      <div className="cell-d-5-12">
+        <h3>{restaurant.name}</h3>
+        <p>{restaurant.description}</p>
         <dl>
           <dt>평점</dt>
-          <dd>4.8</dd>
+          <dd>{restaurant.review_average}</dd>
           <dt>리뷰</dt>
-          <dd>55</dd>
+          <dd>{restaurant.review_count}</dd>
           <dt>좋아요</dt>
-          <dd>234</dd>
+          <dd>{restaurant.total_like}</dd>
         </dl>
+    
         <div>
-          <input type="checkbox" id="my_like" /><label htmlFor="my_like">좋아요</label>
+          <input type="checkbox" id="my_like" checked={restaurant.mylike} /><label htmlFor="my_like">좋아요</label>
           <button>리뷰쓰기</button>
         </div>
         <dl>
           <dt>태그</dt>
-          <dd>피자, 파스타, 햄버거</dd>
+          <dd>{restaurant.tags.map(tag => tag.name).join(', ')}</dd>
           <dt>영업시간</dt>
-          <dd>24시간영업, 연중무휴</dd>
+          <dd>{restaurant.operation_hour}</dd>
           <dt>주소</dt>
-          <dd>서울시 강남구 청담동 129-10</dd>
+          <dd>{restaurant.address}</dd>
           <dt>주차</dt>
-          <dd>발렛 가능</dd>
+          <dd>{restaurant.desc_parking}</dd>
           <dt>연락처</dt>
-          <dd>02-543-2121</dd>
+          <dd>{restaurant.phone}</dd>
         </dl>
-        <FoodMenu />
-        <ReviewList />
-        <Map></Map>
-      </section>
-    );
-  }
-}
+      </div>
+      <FoodMenu className="cell-d-3-12" menus={restaurant.menus} />
+      <Map className="cell-d-4-12"></Map>
+    </div>
+    {/* 리뷰목록 */}
+    {restaurant.reviews && 
+    <ReviewList reviews={restaurant.reviews} />
+    }
+  </section>
+);
+
+// RestaurantInfo.propTypes = {
+//   restaurant: PropTypes.shape({
+//     name: PropTypes.string,
+//     review_average: PropTypes.number.isRequired,
+//     review_count: PropTypes.number.isRequired,
+//     // review_score: PropTypes.number.isRequired,
+//     total_like: PropTypes.number.isRequired,
+//     latitude: PropTypes.number.isRequired,
+//     longitude: PropTypes.number.isRequired
+//   }).isRequired
+// };
 
 export default RestaurantInfo;

@@ -49,9 +49,9 @@
   | 기준폭     | 320px         | 1366px        |
   | 커버리지   | 320 ~ 1024px  | 1025 ~        |
   | 양쪽마진   | 0             | 120px         |
-  | 거터       | 16px          | 24px          |
+  | 거터       | 16px          | 26px          |
   | 컬럼수     | 6             | 12            |
-  | 컬럼넓이   | 40px          | 78px          |
+  | 컬럼넓이   | 40px          | 70px          |
 
 <br>
 
@@ -132,6 +132,7 @@
  - Sass
  - ES6
  - React
+ - Redux
  - Webpack
  - Github
 
@@ -144,6 +145,10 @@
  - react-addons-perf : 성능 검사
  - react-router : React 라우터 구성
  - react-a11y : 접근성 검사를 위해 사용하려 했으나 eslint-plugin-jsx-a11y에서 이를 사용하므로 별도 설정하지 않음
+ - react-slick : 이미지 캐러셀 플러그인
+ - react-redux : 리액트와 리덕스를 쉽게 바인딩 해주는 플러그인
+ - redux-thunk : 비동기 액션을 처리하기 위한 플러그인
+ - react-router-redux : 리액트라우터와 리덕스를 바인딩 해주는 플러그인
 
 <br>
 
