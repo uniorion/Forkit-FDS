@@ -30,7 +30,7 @@ class PhotoCarousel extends Component
       arrows: false,
       dots: true,
       // dotsClass: 'slider-dot',
-      infinite: true,
+      infinite: false,
       speed: 500,
       slidesToShow: 4,
       slidesToScroll: 1,
@@ -54,14 +54,24 @@ class PhotoCarousel extends Component
     };
     return(
       <article className="photo-carousel">
-        <Slider ref="slider" {...settings}>
-          <div><img src="http://lorempixel.com/400/300/food/1" alt="" /></div>
-          <div><img src="http://lorempixel.com/400/300/food/2" alt="" /></div>
-          <div><img src="http://lorempixel.com/400/300/food/3" alt="" /></div>
-          <div><img src="http://lorempixel.com/400/300/food/4" alt="" /></div>
-          <div><img src="http://lorempixel.com/400/300/food/5" alt="" /></div>
-          <div><img src="http://lorempixel.com/400/300/food/6" alt="" /></div>
-        </Slider>
+        { this.props.images ?
+          <Slider ref="slider" {...settings}>
+            {
+              this.props.images.map(img => 
+                <div key={img.id}><img src={img.img_t} alt={img.alt} /></div>
+              )
+            }
+            {/*
+            <div><img src="http://lorempixel.com/400/300/food/1" alt="" /></div>
+            <div><img src="http://lorempixel.com/400/300/food/2" alt="" /></div>
+            <div><img src="http://lorempixel.com/400/300/food/3" alt="" /></div>
+            <div><img src="http://lorempixel.com/400/300/food/4" alt="" /></div>
+            <div><img src="http://lorempixel.com/400/300/food/5" alt="" /></div>
+            <div><img src="http://lorempixel.com/400/300/food/6" alt="" /></div>
+            */}
+          </Slider>
+          : null
+        }
         <button className="slider-btn-prev" onClick={() => this.previous()}>Previous</button>
         <button className="slider-btn-next" onClick={() => this.next()}>Next</button>
       </article>

@@ -36,14 +36,14 @@ class App extends Component {
 
 // export default App;
 
-const mapStateToProps = (state) => ({
-    // propname: state.property
-  text: 'abc'
-});
+// const mapStateToProps = (state) => ({
+//     // propname: state.property
+//   text: 'abc'
+// });
 
 // mapDispatchToProps({
 //   //  propname: actionName
 //   request: requestRestaurants
 // })
 
-export default connect(mapStateToProps)(App);
+export default connect()(App);
