@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 
-import Header from '../components/Common/Header'; 
 import RestaurantList from '../components/Search/RestaurantList';
 
 class Search extends Component{
@@ -12,7 +11,6 @@ class Search extends Component{
 
     return (
       <div>
-        <Header />
         <h2>Restaurant List {page} {pageSize}</h2>
         <ul>
           <li><Link to="restaurant/1">1번</Link></li>
