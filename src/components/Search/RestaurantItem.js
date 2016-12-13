@@ -6,7 +6,7 @@ class RestaurantItem extends Component {
       <div>
         <article>
           <span>1</span>
-          <div><img src="http://lorempixel.com/300/200/food/" alt="" /></div>
+          <div><img src="" alt="" /></div>
           <div>
             <button type="button">prev</button>
             <button type="button">next</button>

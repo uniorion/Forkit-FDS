@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 // import logo from '../images/logo.svg';
 // import './App.css';
 // import './App.scss';
