@@ -15,25 +15,25 @@ class App extends Component {
 
     const currentLocation = this.props.location.pathname;
     
-    let headerContainer = null;
-    let footerContainer = null;
+    let headerContainer = (<Header />);
+    let footerContainer = (<Footer />);
 
-    let headerVisiblePath = ['/search', '/restaurant'];
-    let footerVisiblePath = ['/search', '/restaurant', '/'];
+    let headerInvisiblePath = ['/'];
+    let footerInvisiblePath = [];
 
-    headerVisiblePath.forEach(function(el) {
-      let urlCheck = new RegExp(el);
+    headerInvisiblePath.forEach(function(el) {
+      let urlCheck = new RegExp(el+'$', 'i');
       if ( urlCheck.test(currentLocation) ) {
-        headerContainer = (<Header />);
+        headerContainer = null;
       }
-    }, this);
+    });
 
-    footerVisiblePath.forEach(function(el) {
-      let urlCheck = new RegExp(el);
+    footerInvisiblePath.forEach(function(el) {
+      let urlCheck = new RegExp(el+'$', 'i');
       if ( urlCheck.test(currentLocation) ) {
-        footerContainer = (<Footer />);
+        footerContainer = null;
       }
-    }, this);
+    });
 
     return (
 
