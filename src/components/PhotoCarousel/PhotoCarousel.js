@@ -32,20 +32,20 @@ class PhotoCarousel extends Component
       // adaptiveHeight: true,
       arrows: false,
       dots: true,
-      // dotsClass: 'slider-dot',
       infinite: moreMax,
       speed: 500,
       slidesToShow: 4,
       slidesToScroll: 4,
       cssEase: 'ease',
       easing: 'ease-out',
-      touchThreshold: 5,
+      // touchThreshold: 5,
       responsive: [ 
         { 
-          breakpoint: 1024, 
+          breakpoint: 600, 
           settings: 
           { 
-            slidesToShow: 1, 
+            dots: false,
+            slidesToShow: 3, 
             slidesToScroll: 1,
             swipe: true,
             swipeToSlide: true
@@ -69,14 +69,16 @@ class PhotoCarousel extends Component
             <div><img src="http://lorempixel.com/400/300/food/2" alt="" /></div>
             <div><img src="http://lorempixel.com/400/300/food/3" alt="" /></div>
             <div><img src="http://lorempixel.com/400/300/food/4" alt="" /></div>
+            */}
             <div><img src="http://lorempixel.com/400/300/food/5" alt="" /></div>
             <div><img src="http://lorempixel.com/400/300/food/6" alt="" /></div>
-            */}
+            <div><img src="http://lorempixel.com/400/300/food/1" alt="" /></div>
+            <div><img src="http://lorempixel.com/400/300/food/2" alt="" /></div>
           </Slider>
           : null
         }
-        <button className="slider-btn-prev" onClick={() => this.previous()}>Previous</button>
-        <button className="slider-btn-next" onClick={() => this.next()}>Next</button>
+        <button className="slider-btn-prev m-hidden" onClick={() => this.previous()}>Previous</button>
+        <button className="slider-btn-next m-hidden" onClick={() => this.next()}>Next</button>
       </article>
     );
   }
