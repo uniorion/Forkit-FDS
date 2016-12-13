@@ -10,7 +10,7 @@ import { Provider } from 'react-redux';
 ReactDOM.render(
   <Provider store={store}>
     <Router history={browserHistory}>
-      <Route path="/" component= {App}>
+      <Route path="/" component={App}>
         <IndexRoute component={IndexPage} />
         <Route path="search" component={Search} />
         <Route path="restaurant/:id" component={Restaurant} />

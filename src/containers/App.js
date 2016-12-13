@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import logo from '../images/logo.svg';
+import { Component } from 'react';
+// import logo from '../images/logo.svg';
 // import './App.css';
 // import './App.scss';
-import { Link } from 'react-router';
+// import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
 import Header from '../components/Common/Header'; 

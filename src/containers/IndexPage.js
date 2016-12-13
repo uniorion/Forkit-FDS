@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Link, Router, browserHistory} from 'react-router';
+import {Link, browserHistory} from 'react-router';
 
 //대문페이지
 //SearchBar, 로고, UserInfo, 배경이미지로, Footer 구성

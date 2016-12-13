@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import FoodMenu from './FoodMenu';
 import ReviewList from '../Review/ReviewList';
 import Map from '../Map/Map';

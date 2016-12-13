@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import UserInfo from './UserInfo';
+// import UserInfo from './UserInfo';
 import {Link} from 'react-router';
 
 //인덱스 페이지를 제외한 나머지 페이지의 헤더 컴포넌트

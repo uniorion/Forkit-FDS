@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router';
+// import {Link} from 'react-router';
 import Rating from './Rating';
 
 class ReviewItem extends Component
@@ -18,7 +18,7 @@ class ReviewItem extends Component
 
   render(){
     const { review } = this.props;
-    let imgCount = 0;
+    // let imgCount = 0; 작업중
     return (
       <li>
         <img src='http://lorempixel.com/100/100/people/1' alt="" /> <span>{review.author}</span>

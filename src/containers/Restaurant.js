@@ -5,6 +5,7 @@ import Header from '../components/Common/Header';
 import PhotoCarousel from '../components/PhotoCarousel/PhotoCarousel';
 import RestaurantInfo from '../components/Restaurant/RestaurantInfo';
 import * as RestaurantActions from '../actions/restaurant';
+import { Link } from 'react-router';
 
 //Header, 지도, 페이징 컴포넌트와 검색/정렬 필터, 목록으로 구성됨
 
@@ -16,20 +17,22 @@ class Restaurant extends Component
 
   //처음 열렸을 때 1회 실행
   componentDidMount(){
-    const { dispatch } = this.props;
-    this.loadRestaurant();
+    // const { dispatch } = this.props;
+    this.loadRestaurant(this.props.params.id);
   }
 
   //컴포넌트가 prop을 받을때 실행(params 변경시)
   componentWillReceiveProps(nextProps){
+    console.log(nextProps.params.id);
+    console.log(this.props.params.id);
     if(nextProps.params.id !== this.props.params.id){
-      this.loadRestaurant();
+      this.loadRestaurant(nextProps.params.id);
     }
   }
 
-  loadRestaurant(){
+  loadRestaurant(id){
     const { actions } = this.props;
-    actions.fetchRestaurantIfNeeded(this.props.params.id);
+    actions.fetchRestaurantIfNeeded(id);
   }
 
   render(){
@@ -39,6 +42,7 @@ class Restaurant extends Component
         {
           this.props.restaurant.id &&
           <main>
+            <Link to="restaurant/3">3번</Link>
             <h2>Restaurant Detail {this.props.params.id}</h2>
             <div>{this.props.restaurant.address}</div>
             <PhotoCarousel images={this.props.restaurant.images} />
@@ -50,10 +54,17 @@ class Restaurant extends Component
   }
 }
 
-const mapStateToProps = (state, ownProps) => ({
-  isFetching: state.restaurant.isFetching,
-  restaurant: state.restaurant.info
-});
+// const mapStateToProps = (state, ownProps) => ({
+//   isFetching: state.restaurant.isFetching,
+//   restaurant: state.restaurant.info
+// });
+const mapStateToProps = (state, ownProps) => {
+  console.log(state);
+  return {
+    isFetching: state.restaurant.isFetching,
+    restaurant: state.restaurant.info
+  };
+};
 
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators({
