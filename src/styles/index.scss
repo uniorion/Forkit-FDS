@@ -1,10 +1,10 @@
+@import "libs/libs";
 @import "base/base";
 @import "components/components";
-@import "libs/libs";
 
 @import url("./index.css");
 @import url("./containers/App.scss");
 
-.hidden {
-  display: none;
+html {
+  font-size: $base-font-size;
 }
