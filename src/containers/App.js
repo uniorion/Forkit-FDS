@@ -5,10 +5,43 @@ import logo from '../images/logo.svg';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
+import Header from '../components/Common/Header'; 
+import Footer from '../components/Common/Footer'; 
+
 //Container 역할
 class App extends Component {
+
   render() {
+
+    const currentLocation = this.props.location.pathname;
+    
+    let headerContainer = (<Header />);
+    let footerContainer = (<Footer />);
+
+    let headerInvisiblePath = ['/'];
+    let footerInvisiblePath = [];
+
+    headerInvisiblePath.forEach(function(el) {
+      let urlCheck = new RegExp(el+'$', 'i');
+      if ( urlCheck.test(currentLocation) ) {
+        headerContainer = null;
+      }
+    });
+
+    footerInvisiblePath.forEach(function(el) {
+      let urlCheck = new RegExp(el+'$', 'i');
+      if ( urlCheck.test(currentLocation) ) {
+        footerContainer = null;
+      }
+    });
+
     return (
+
+      <div>
+        {headerContainer}
+        {this.props.children}
+        {footerContainer}
+      </div>
       // <div>
         // {/*<Link to="/">Index</Link>*/}
         // {/*<ul>*/}
@@ -16,7 +49,7 @@ class App extends Component {
         //   {/*<li><Link to={{ pathname: '/list', query: { foo: 'bar' } }}>/list?foo=bar</Link></li>*/}
         //   {/*<li><Link to="/mypage">MyPage</Link></li>*/}
         // {/*</ul>*/}
-        this.props.children
+        // this.props.children
       // </div>
 
       

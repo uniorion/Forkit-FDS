@@ -1,3 +1,15 @@
+// 반응형 구현을 위한 media-query.
+@mixin mobile {
+  @media (max-width: #{$bp-desktop}) {
+    @content;
+  }
+}
+@mixin desktop{
+  @media (min-width: #{$bp-desktop + 1}) {
+    @content;
+  }
+}
+
 /* makeBaseline()
  * Guide 중, baseline 의 linear-gradient 생성하여 리턴
  */
@@ -58,20 +70,6 @@
   $column-gradient: 'linear-gradient(90deg, #{$column-gradient})';
 
   @return $column-gradient;
-}
-
-/* divisor(num)
- * 나누어 떨어지는 수를 리스트로 반환
- */ 
-@function divisor($num) {
-  $list: 1;
-
-  @for $i from 2 through $num {
-    @if ($num % $i) == 0 {
-      $list:  append($list, $i, comma);
-    } 
-  } 
-  @return $list;
 }
 
 /* makeList(num)
