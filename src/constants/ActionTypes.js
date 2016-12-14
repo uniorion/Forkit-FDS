@@ -12,6 +12,7 @@ export const RECEIVE_RESTAURANT_LIST = 'RECEIVE_RESTAURANT_LIST';
 // export const ORDER_REVIEW   = 'ORDER_REVIEW'; 
 // export const ORDER_AVERAGE  = 'ORDER_AVERAGE'; 
 // export const ORDER_LIKE     = 'ORDER_LIKE';
+export const CHANGE_ORDERING     = 'CHANGE_ORDERING';
 
 // pagination
 // export const REQUEST_PAGE_NUMBER    = 'REQUEST_PAGE_NUMBER';

@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Link } from 'react-router';
+// import { Link } from 'react-router';
 
 import * as SearchActions from '../actions/search';
 import RestaurantList from '../components/Search/RestaurantList';
@@ -13,28 +13,40 @@ class Search extends Component
   };
 
   componentDidMount(){
-    this.loadRestaurant();
+    this.loadRestaurants();
   }
   
   componentWillReceiveProps(nextProps){
+    if( JSON.stringify(nextProps.search.queryParams) !== JSON.stringify(this.props.queryParams)){
+      this.loadRestaurants();
+    }
   }
 
-  loadRestaurant(){
+  loadRestaurants(){
     const { actions } = this.props;
-    actions.fetchSearchIfNeeded();
+    actions.fetchSearchIfNeeded(this.props.queryParams);
+  }
+
+  handleChangeOrdering(e) {
+    const { actions } = this.props;
+    actions.handleOrdering(e.target.value);
   }
 
   render(){
     return (
       <div>
-        <h1>totalCount : {this.props.totalCount}</h1>
+        {/*
         <ul>
           <li><Link to="restaurant/1">1번</Link></li>
           <li><Link to="restaurant/2">2번</Link></li>
           <li><Link to="restaurant/3">3번</Link></li>
         </ul>
+        */}
         
-        <RestaurantList restaurant={this.props.restaurant} />
+        <RestaurantList 
+          search={this.props.search}
+          onChangeOrdering={this.handleChangeOrdering.bind(this)} 
+        />
         
       </div>
 
@@ -42,16 +54,22 @@ class Search extends Component
   }
 }
 
-const mapStateToProps = (state, ownProps) => {
-  return {
-    isFetching: state.search.isFetching,
-    totalCount: state.search.totalCount,
-  };
-};
+const mapStateToProps = state => ({
+  isFetching: state.search.isFetching,
+  queryParams: {
+    pageSize:   state.search.queryParams.pageSize,
+    pageNum:    state.search.queryParams.pageNum,
+    keyword:    state.search.queryParams.keyword,
+    ordering:   state.search.queryParams.ordering,
+    filter:     state.search.queryParams.filter,
+  },
+  search:     state.search,
+});
 
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators({
-    fetchSearchIfNeeded: SearchActions.fetchSearchIfNeeded
+    fetchSearchIfNeeded: SearchActions.fetchSearchIfNeeded,
+    handleOrdering: SearchActions.changeOrdering,
   }, dispatch)
 });
 

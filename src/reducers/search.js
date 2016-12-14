@@ -1,14 +1,18 @@
-import { REQUEST_RESTAURANT_LIST, RECEIVE_RESTAURANT_LIST } from '../constants/ActionTypes';
+import { REQUEST_RESTAURANT_LIST, RECEIVE_RESTAURANT_LIST, CHANGE_ORDERING } from '../constants/ActionTypes';
 
 const initialState = {
   isFetching: false,
-  pageSize  : 10,
-  pageNum   : 1,
-  totalCount: 0,
-  keyword   : '',
-  ordering  : 'recent',
-  filter    : '',
-  items: []
+  queryParams: {
+    pageSize:   10,
+    pageNum:    1,
+    keyword:    '소고기',
+    ordering:   '-review_count',
+    filter:     '',
+  },
+  totalCount: -1,
+  nextUrl:    null,
+  prevUrl:    null,  
+  items:      []
 };
 
 const Search = (state = initialState, action) => {
@@ -24,7 +28,16 @@ const Search = (state = initialState, action) => {
       ...state,
       isFetching: false,
       totalCount: action.totalCount,
-      items: action.results
+      nextUrl:    action.nextUrl,
+      prevUrl:    action.prevUrl,  
+      items:      action.results
+    };
+  
+  case CHANGE_ORDERING:
+    console.log('CHANGE_ORDERING ======');
+    return {
+      ...state,
+      queryParams: { ...state.queryParams, ordering: action.ordering }
     };
 
   default:

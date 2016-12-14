@@ -1,11 +1,15 @@
 import React, {Component} from 'react';
 
 class RestaurantItem extends Component {
+
   render () {
+
+    const restaurant = this.props.restaurant;
+    
     return (
       <div>
         <article>
-          <span>1</span>
+          <span>{this.props.idx + 1}</span>
           <div><img src="" alt="" /></div>
           <div>
             <button type="button">prev</button>
@@ -16,30 +20,34 @@ class RestaurantItem extends Component {
           </div>
         </article>
         <div>
-          <em>새벽집</em>
-          <p>테이스티 로드 방영 맛집. 한우 등심, 우삼겹, 돼지 오겹살 등 소고기와 돼지고기를 모두 줄길 수 있는 곳.</p>
+          <em>{restaurant.name}</em>
+          <p>{restaurant.description}</p>
           <dl>
             <dt>평점</dt>
-            <dd>4.8</dd>
+            <dd>{restaurant.review_average}</dd>
             <dt>리뷰</dt>
-            <dd>55</dd>
+            <dd>{restaurant.review_count}</dd>
             <dt>좋아요</dt>
-            <dd>234</dd>
+            <dd>{restaurant.total_like}</dd>
           </dl>
           <div>
             <button type="button">좋아요</button>
           </div>
           <di>
             <dt>태그</dt>
-            <dd>해장, 접대, 수요미식회, 무한도전맛집, 점심맛집</dd>
+            <dd>
+               {restaurant.tags.map(tag =>
+                  <span key={tag.id}>{tag.name}</span>
+                )}
+            </dd>
             <dt>영업시간</dt>
-            <dd>24시간영업, 연중무휴</dd>
+            <dd>{restaurant.operation_hour}</dd>
             <dt>주소</dt>
-            <dd>청담동, 서울시 강남구 청담동 129-10</dd>
+            <dd>{restaurant.address}</dd>
             <dt>주차</dt>
-            <dd>발렛 가능</dd>
+            <dd>{restaurant.desc_parking}</dd>
             <dt>연락처</dt>
-            <dd>02-555-1234</dd>
+            <dd>{restaurant.phone}</dd>
           </di>
         </div>
       </div>

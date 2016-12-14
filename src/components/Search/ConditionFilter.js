@@ -4,15 +4,15 @@ class SearchFilter extends Component {
   render () {
     return (
       <div>
-        <select>
-          <option selected>평점순</option>
-          <option>최근등록순</option>
-          <option>좋아요순</option>
-          <option>리뷰순</option>
-        </select>
-        <select>
-          <option selected>주차 가능</option>
-          <option>주차 상관없음</option>
+        <select 
+          onBlur={this.props.onChangeOrdering}
+          onChange={this.props.onChangeOrdering}
+          value={this.props.queryParams.ordering}
+        >
+          <option value="-review_average" selected>평점순</option>
+          <option value="-pk">최근등록순</option>
+          <option value="-total_like">좋아요순</option>
+          <option value="-review_count">리뷰순</option>
         </select>
         <button type="button">검색 필터</button>
       </div>
