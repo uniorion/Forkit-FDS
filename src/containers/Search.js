@@ -4,7 +4,12 @@ import { connect } from 'react-redux';
 // import { Link } from 'react-router';
 
 import * as SearchActions from '../actions/search';
+import Map from '../components/Map/Map';
+import Condition from '../components/Search/Condition';
 import RestaurantList from '../components/Search/RestaurantList';
+import RestaurantItem from '../components/Search/RestaurantItem';
+import Pager from '../components/Pager/Pager';
+
 
 class Search extends Component
 {
@@ -33,23 +38,30 @@ class Search extends Component
   }
 
   render(){
+  
+    const search = this.props.search;
+    
     return (
       <div>
-        {/*
-        <ul>
-          <li><Link to="restaurant/1">1번</Link></li>
-          <li><Link to="restaurant/2">2번</Link></li>
-          <li><Link to="restaurant/3">3번</Link></li>
-        </ul>
-        */}
-        
-        <RestaurantList 
-          search={this.props.search}
-          onChangeOrdering={this.handleChangeOrdering.bind(this)} 
+        <Map />
+        <Condition 
+          queryParams={search.queryParams}
+          onChangeOrdering={this.handleChangeOrdering.bind(this)}
         />
-        
+        <RestaurantList>
+          {
+            search.items.map((restaurant, i) => 
+              <RestaurantItem
+                key={restaurant.id} 
+                idx={i}
+                restaurant={restaurant}
+              >
+              </RestaurantItem>
+            )
+          }
+          <Pager />
+        </RestaurantList>
       </div>
-
     );
   }
 }

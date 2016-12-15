@@ -6,7 +6,7 @@ const initialState = {
     pageSize:   10,
     pageNum:    1,
     keyword:    '소고기',
-    ordering:   '-review_count',
+    ordering:   '-review_average',
     filter:     '',
   },
   totalCount: -1,

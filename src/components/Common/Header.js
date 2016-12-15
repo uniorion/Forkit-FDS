@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
 // import UserInfo from './UserInfo';
 import {Link} from 'react-router';
 
@@ -10,6 +11,7 @@ class Header extends Component
   render(){
     return (
       <header>
+        {this.props.keyword}
         <Link to="/">Logo</Link>
         <Link to="mypage">My Page</Link>
       </header>
@@ -17,4 +19,14 @@ class Header extends Component
   }
 }
 
-export default Header;
+const mapStateToProps = (state) => ({
+    // propname: state.property
+  keyword: state.search.queryParams.keyword
+});
+
+// mapDispatchToProps({
+//   //  propname: actionName
+//   request: requestRestaurants
+// })
+
+export default connect(mapStateToProps)(Header);
