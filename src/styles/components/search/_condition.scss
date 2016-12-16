@@ -1,0 +1,19 @@
+.condition {
+  h3 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: $font-emphasis;
+    em {
+      color: $brand-main;
+    }
+  }
+  select {
+    border: 0;
+    border-radius: 0.4rem;
+    background: url('../images/bg-divider.png') no-repeat 75% 50%, url('../images/icon-arrow.png') no-repeat 90% 50%, $mini-panel-back;
+    font-size: 1.4rem;
+    font-weight: bold;
+    @include padding(left 1.07em);
+    @include size(14rem 4rem);
+  }
+}

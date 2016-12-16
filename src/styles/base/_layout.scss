@@ -19,11 +19,11 @@
   background: #98abcd;
 }
 .container {
-  @include margin(left 14px right 14px);
+  @include margin(left 1.4rem right 1.4rem);
   @include desktop {
     @include margin(left 0 right 0)
   }
 }
-.main {
+main {
   @include margin(left auto right auto);
 }

@@ -15,7 +15,7 @@ class App extends Component {
 
     const currentLocation = this.props.location.pathname;
     
-    let headerContainer = (<Header />);
+    let headerContainer = (<Header className="header" />);
     let footerContainer = (<Footer />);
 
     let headerInvisiblePath = [];

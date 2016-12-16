@@ -1,10 +1,12 @@
 import React from 'react';
 
 const RestaurantItem = ({restaurant, idx, children}) => (
-  <div>
-    <div>
+  <div className="restaurant row">
+    <div className="cell-d-1-3">
       <span>{idx + 1}</span>
-      <div><img src="" alt="" /></div>
+      <div>
+        <img src={restaurant.images[0].img_s} alt={restaurant.images[0].alt} />
+      </div>
       <div>
         <button type="button">prev</button>
         <button type="button">next</button>
@@ -13,7 +15,7 @@ const RestaurantItem = ({restaurant, idx, children}) => (
         <span>1</span>/<span>10</span>
       </div>
     </div>
-    <div>
+    <div className="cell-d-1-3">
       <em>{restaurant.name}</em>
       <p>{restaurant.description}</p>
       <dl>
@@ -27,7 +29,9 @@ const RestaurantItem = ({restaurant, idx, children}) => (
       <div>
         <button type="button">좋아요</button>
       </div>
-      <di>
+    </div>
+    <div className="cell-d-1-3">
+      <dl>
         <dt>태그</dt>
         <dd>
             {restaurant.tags.map(tag =>
@@ -42,7 +46,7 @@ const RestaurantItem = ({restaurant, idx, children}) => (
         <dd>{restaurant.desc_parking}</dd>
         <dt>연락처</dt>
         <dd>{restaurant.phone}</dd>
-      </di>
+      </dl>
     </div>
   </div>
 );

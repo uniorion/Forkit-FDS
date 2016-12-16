@@ -1,0 +1,13 @@
+$padding-properties: top, right, bottom, left !default;
+
+@mixin padding($properties) {
+  @if type-of($properties) != list {
+    @error "전달인자 유형은 list 타입이어야 합니다.";
+  }
+  @each $property in $padding-properties {
+    $index: index($properties, $property);
+    @if $index {
+      padding-#{$property}: nth($properties, $index + 1);
+    }
+  }
+}

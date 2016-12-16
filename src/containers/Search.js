@@ -38,23 +38,27 @@ class Search extends Component
     return (
       <div>
         <Map />
-        <Condition 
-          queryParams={search.queryParams}
-          onChangeOrdering={this.handleChangeOrdering.bind(this)}
-        />
-        <RestaurantList>
-          {
-            search.items.map((restaurant, i) => 
-              <RestaurantItem
-                key={restaurant.id} 
-                idx={i}
-                restaurant={restaurant}
-              >
-              </RestaurantItem>
-            )
-          }
-          <Pager />
-        </RestaurantList>
+        <div className="container">
+          <main className="grid-wrap">
+            <Condition 
+              queryParams={search.queryParams}
+              onChangeOrdering={this.handleChangeOrdering.bind(this)}
+            />
+            <RestaurantList>
+              {
+                search.items.map((restaurant, i) => 
+                  <RestaurantItem
+                    key={restaurant.id} 
+                    idx={i}
+                    restaurant={restaurant}
+                  >
+                  </RestaurantItem>
+                )
+              }
+              <Pager />
+            </RestaurantList>
+          </main>
+        </div>
       </div>
     );
   }
