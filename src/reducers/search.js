@@ -1,12 +1,12 @@
-import { REQUEST_RESTAURANT_LIST, RECEIVE_RESTAURANT_LIST, CHANGE_ORDERING } from '../constants/ActionTypes';
+import { REQUEST_RESTAURANT_LIST, RECEIVE_RESTAURANT_LIST, CHANGE_ORDERING, SEARCH_INPUT_CHANGE } from '../constants/ActionTypes';
 
 const initialState = {
   isFetching: false,
   queryParams: {
     pageSize:   10,
     pageNum:    1,
-    keyword:    '소고기',
-    ordering:   '-review_average',
+    search:    '강남',
+    ordering:   '-pk',
     filter:     '',
   },
   totalCount: -1,
@@ -34,10 +34,15 @@ const Search = (state = initialState, action) => {
     };
   
   case CHANGE_ORDERING:
-    console.log('CHANGE_ORDERING ======');
     return {
       ...state,
       queryParams: { ...state.queryParams, ordering: action.ordering }
+    };
+
+  case SEARCH_INPUT_CHANGE:
+    return {
+      ...state,
+      queryParams: { ...state.queryParams, search: action.search }
     };
 
   default:

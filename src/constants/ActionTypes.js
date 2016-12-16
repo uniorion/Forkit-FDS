@@ -21,3 +21,6 @@ export const CHANGE_ORDERING     = 'CHANGE_ORDERING';
 // export const REQUEST_PAGE_PREV_SET  = 'REQUEST_PAGE_PREV_SET';
 // export const REQUEST_PAGE_NEXT_SET  = 'REQUEST_PAGE_NEXT_SET';
 // export const RECEIVE_PAGE           = 'RECEIVE_PAGE';
+
+// Forms
+export const SEARCH_INPUT_CHANGE = 'SEARCH_INPUT_CHANGE';

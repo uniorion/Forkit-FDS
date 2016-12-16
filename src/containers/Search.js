@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 // import { Link } from 'react-router';
@@ -13,28 +13,22 @@ import Pager from '../components/Pager/Pager';
 
 class Search extends Component
 {
-  static propTypes = {
-    actions: PropTypes.object.isRequired
-  };
-
   componentDidMount(){
-    this.loadRestaurants();
+    this.loadRestaurants(this.props.queryParams);
   }
   
   componentWillReceiveProps(nextProps){
     if( JSON.stringify(nextProps.search.queryParams) !== JSON.stringify(this.props.queryParams)){
-      this.loadRestaurants();
+      this.loadRestaurants(nextProps.search.queryParams);
     }
   }
 
-  loadRestaurants(){
-    const { actions } = this.props;
-    actions.fetchSearchIfNeeded(this.props.queryParams);
+  loadRestaurants(queryParams){
+    this.props.actions.fetchSearchIfNeeded(queryParams);
   }
 
   handleChangeOrdering(e) {
-    const { actions } = this.props;
-    actions.handleOrdering(e.target.value);
+    this.props.actions.handleOrdering(e.target.value);
   }
 
   render(){
@@ -71,7 +65,7 @@ const mapStateToProps = state => ({
   queryParams: {
     pageSize:   state.search.queryParams.pageSize,
     pageNum:    state.search.queryParams.pageNum,
-    keyword:    state.search.queryParams.keyword,
+    search:     state.search.queryParams.search,
     ordering:   state.search.queryParams.ordering,
     filter:     state.search.queryParams.filter,
   },

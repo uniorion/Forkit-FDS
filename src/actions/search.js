@@ -1,4 +1,4 @@
-import { REQUEST_RESTAURANT_LIST, RECEIVE_RESTAURANT_LIST, CHANGE_ORDERING } from '../constants/ActionTypes';
+import { REQUEST_RESTAURANT_LIST, RECEIVE_RESTAURANT_LIST, CHANGE_ORDERING, SEARCH_INPUT_CHANGE } from '../constants/ActionTypes';
 import 'whatwg-fetch';
 
 export const requestRestaurantList = () => ({
@@ -11,10 +11,9 @@ export const receiveRestaurantList = (json) => ({
   nextUrl: json.next,
   prevUrl: json.previous,  
   results: json.results
-  // restaurants: json.results.children.map(child => child.data)
 });
 
-export const fetchSearchIfNeeded = (params) => (dispatch) => {
+export const fetchSearchIfNeeded = (params) => (dispatch, getState) => {
   dispatch(requestRestaurantList());
   console.log('params >>>>>> ' + objectToQueryString(params));
   return fetch('http://mangoplates.com/api/v1/restaurants' + objectToQueryString(params))
@@ -31,6 +30,12 @@ export const changeOrdering = (val) => {
     ordering: val
   };
 };
+
+export const seachInputChange = (val) => ({
+  type: SEARCH_INPUT_CHANGE,
+  search: val
+});
+
 
 function objectToQueryString(obj) {
   return Object.keys(obj)
