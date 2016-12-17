@@ -1,1 +1,14 @@
 // 공통 mixin, function 
+@mixin flex-align($h-align: flex-start, $v-align: stretch) {
+  display: flex;
+  align-items: $v-align;
+  justify-content: $h-align;
+}
+
+%clearfix {
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}

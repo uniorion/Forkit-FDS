@@ -17,12 +17,12 @@ const Condition = ({queryParams, onChangeOrdering}) => (
           <option value="-total_like">좋아요순</option>
           <option value="-review_count">리뷰순</option>
         </select>
-        <button type="button">검색 필터</button>
+        {/*<button type="button">검색 필터</button>*/}
       </div>
     </div>
     <div className="row">
       <ul className="cell-d-1-1">
-        <li><a href="">전체 (1234)</a></li>
+        <li><a className="active" href="">전체 (1234)</a></li>
         <li><a href="">한식 (23)</a></li>
         <li><a href="">분식 (25)</a></li>
         <li><a href="">양식 (11)</a></li>

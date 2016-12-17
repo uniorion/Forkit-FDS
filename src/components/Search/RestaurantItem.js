@@ -3,10 +3,11 @@ import React from 'react';
 const RestaurantItem = ({restaurant, idx, children}) => (
   <div className="restaurant row">
     <div className="cell-d-1-3">
-      <span>{idx + 1}</span>
-      <div>
+      {/*<span className="item-num">{idx + 1}</span>*/}
+      <div className="photo-carousel">
         <img src={restaurant.images[0].img_s} alt={restaurant.images[0].alt} />
       </div>
+       {/*
       <div>
         <button type="button">prev</button>
         <button type="button">next</button>
@@ -14,20 +15,33 @@ const RestaurantItem = ({restaurant, idx, children}) => (
       <div>
         <span>1</span>/<span>10</span>
       </div>
+      */}
     </div>
     <div className="cell-d-1-3">
       <em>{restaurant.name}</em>
       <p>{restaurant.description}</p>
-      <dl>
-        <dt>평점</dt>
-        <dd>{restaurant.review_average}</dd>
-        <dt>리뷰</dt>
-        <dd>{restaurant.review_count}</dd>
-        <dt>좋아요</dt>
-        <dd>{restaurant.total_like}</dd>
-      </dl>
+      <ul>
+        <li>
+          <p>평점</p>
+          <em>{   restaurant.review_average.toString().indexOf('.') > -1 
+                ? parseFloat(restaurant.review_average).toFixed(1) 
+                : restaurant.review_average}</em>
+        </li>
+        <li>
+          <p>리뷰</p>
+          <em>{   restaurant.review_count.toString().indexOf('.') > -1 
+                ? parseFloat(restaurant.review_count).toFixed(1) 
+                : restaurant.review_count}</em>
+        </li>
+        <li>
+          <p>좋아요</p>
+          <em>{   restaurant.total_like.toString().indexOf('.') > -1 
+                ? parseFloat(restaurant.total_like).toFixed(1) 
+                : restaurant.total_like}</em>
+        </li>
+      </ul>
       <div>
-        <button type="button">좋아요</button>
+        <button className={true ? 'active' : '' } type="button"><i></i>좋아요</button>
       </div>
     </div>
     <div className="cell-d-1-3">

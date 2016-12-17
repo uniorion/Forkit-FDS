@@ -8,3 +8,13 @@ select {
 select::-ms-expand { 
   display: none;
 }
+
+a {
+  text-decoration: none;
+  color: $font-base;
+}
+
+button {
+  border: 0;
+  background: transparent;
+}
