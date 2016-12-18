@@ -45,6 +45,30 @@
   }
 }
 
-.default-slide {
-  background: #aaa;
+.slick-track .default-slide {
+  box-sizing: border-box;
+  // position: relative;
+  border: 2px solid #ccc;
+  height: 16.625vw;
+  padding: 10px;
 }
+
+.default-slide .empty-photo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  font-size: 8rem;
+  background: #ccc;
+  color: $font-emphasis;
+}
+
+// .default-slide::after{
+//   content: 'test';
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   right: 0;
+//   bottom: 0;
+// }

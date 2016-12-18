@@ -1,6 +1,7 @@
 import React from 'react';
 import FoodMenu from './FoodMenu';
 import Map from '../Map/Map';
+import LikeButton from './LikeButton';
 
 const RestaurantInfo = ({ restaurant, children }) => (
   <section className="main grid-wrap restaurant">
@@ -22,16 +23,14 @@ const RestaurantInfo = ({ restaurant, children }) => (
             </dl>
           </div>
           <div className="restaurant-button-group cell-d-1-2 cell-m-1-1">
-            <div className="my_like_group">
-              <input type="checkbox" id="my_like" checked={restaurant.mylike} /><label htmlFor="my_like">좋아요</label>
-            </div>
-            <button>리뷰쓰기</button>
+            <LikeButton className='button' mylike={true} toggleLike={null} />
+            <button className="button"><i className="fa fa-pencil" aria-hidden="true"></i> 리뷰쓰기</button>
           </div>
         </div>
         <div className="row">
           <div className="cell-d-1-1 cell-m-1-1">
             <ul className="restaurant-detail">
-              <li><span>태그</span> <span>{restaurant.tags.map(tag => tag.name).join(', ')}식당, 베트남, 세계음식식당, 베트남, 세계음식식당, 베트남, 세계음식식당, 베트남, 세계음식</span></li>
+              <li><span>Tags</span> <span>{restaurant.tags.map(tag => tag.name).join(', ')}식당, 베트남, 세계음식식당, 베트남, 세계음식식당, 베트남, 세계음식식당, 베트남, 세계음식</span></li>
               <li><span>영업시간</span> <span>{restaurant.operation_hour}</span></li>
               <li><span>주소</span> <span>{restaurant.address}</span></li>
               <li><span>주차</span> <span>{restaurant.desc_parking}</span></li>

@@ -26,7 +26,7 @@ class PhotoCarousel extends Component
 
     let defaultSlides = [];
     for(let i=0, l=maxCount-imageCount; i < l; i++){
-      defaultSlides.push(<div className='default-slide' key={`default_${i}`}>default</div>);
+      defaultSlides.push(<div className='default-slide' key={`default_${i}`}><div className="empty-photo"><i className="fa fa-picture-o" aria-hidden="true"></i></div></div>);
     }
     return defaultSlides;
   }

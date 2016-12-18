@@ -4,3 +4,31 @@
 @import 'restaurant/restaurant-info';
 @import 'search/condition';
 @import 'search/restaurant-item';
+
+.button {
+  margin: 0 0.5rem;
+  border: 2px solid $brand-main;
+  border-radius: 2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: $brand-main;
+  padding-top: 0.5rem;
+  @include size(8rem 2.6rem);
+  i{
+    font-weight: 700;
+  }
+}
+
+// .like-button{
+  // i {
+  //   display: inline-block;
+  //   background: url('../images/icon-heart.png') no-repeat;
+  //   vertical-align: middle;
+  //   @include padding(right .5em);
+  //   @include size(1.6rem 1.4rem);
+  // }
+  // &.active {
+  //   background: $brand-main;
+  //   color: #fff;
+  // }
+// }

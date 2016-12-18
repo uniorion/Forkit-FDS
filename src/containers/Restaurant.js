@@ -40,7 +40,6 @@ class Restaurant extends Component
   render(){
     return (
       <div>
-        <Header/>
         {
           this.props.restaurant.id &&
           <main>
@@ -48,17 +47,19 @@ class Restaurant extends Component
             <h2>Restaurant Detail {this.props.params.id}</h2>
             <div>{this.props.restaurant.address}</div>
             <PhotoCarousel images={this.props.restaurant.images} />
-            <RestaurantInfo restaurant={this.props.restaurant}>
-              {this.props.restaurant.reviews && 
-                <ReviewList reviews={this.props.restaurant.reviews}>
-                  {
-                    this.props.restaurant.reviews.map(review => 
-                      <ReviewItem key={review.id} review={review} />
-                    )
-                  }
-                </ReviewList>
-              }
-            </RestaurantInfo>  
+            <div className="container">
+              <RestaurantInfo restaurant={this.props.restaurant}>
+                {this.props.restaurant.reviews && 
+                  <ReviewList reviews={this.props.restaurant.reviews}>
+                    {
+                      this.props.restaurant.reviews.map(review => 
+                        <ReviewItem key={review.id} review={review} />
+                      )
+                    }
+                  </ReviewList>
+                }
+              </RestaurantInfo>
+            </div>
           </main>
         }
       </div>

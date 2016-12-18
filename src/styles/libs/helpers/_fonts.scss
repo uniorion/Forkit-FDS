@@ -1,0 +1,22 @@
+$font-properties: weight, style, variant, size, line-height, family;
+
+@mixin font($properties) {
+  @if type-of($properties) != list {
+    @error "전달인자 유형은 list 타입이어야 합니다.";
+  }
+  @each $property in $font-properties {
+    $index: index($properties, $property);
+    @if $index {
+      $value: nth($properties, $index + 1);
+      @if $property == size {
+        @include rem(font-#{$property}, $value);
+      }
+      @else if $property == line-height {
+        @include rem(#{$property}, $value);
+      }
+      @else {
+        font-#{$property}: $value;
+      }
+    }
+  }
+}
