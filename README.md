@@ -148,7 +148,6 @@
  - react-slick : 이미지 캐러셀 플러그인
  - react-redux : 리액트와 리덕스를 쉽게 바인딩 해주는 플러그인
  - redux-thunk : 비동기 액션을 처리하기 위한 플러그인
- - react-router-redux : 리액트라우터와 리덕스를 바인딩 해주는 플러그인
 
 <br>
 

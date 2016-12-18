@@ -1,5 +1,14 @@
 @import "variables";
 @import "fonts";
 @import "mixin";
-@import "reset";
 @import "layout";
+@import "reset";
+
+html {
+  font-size: $base-font-size;
+  color: $font-base;
+}
+
+body {
+  @include font(family $base-font-family)
+}

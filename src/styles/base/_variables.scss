@@ -4,9 +4,6 @@ $bp-desktop: 1024px !default;
 
 
 // ----------- Colors
-$white: #fff; // 255,255,255
-$black: #000; // 0,0,0
-
 $brand-main: #ff3c32;
 $font-base: #969696;
 $font-emphasis: #555;
@@ -14,8 +11,9 @@ $mini-panel-back: #e8eff0;
 $horizen-divider: #dadada;
 
 // ----------- Font
-
-
+$base-font-family: 'Spoqa Han Sans';
+$base-font-size: 10px;
+$base-line-height: 1.5;
 // ----------- Paths
 
 

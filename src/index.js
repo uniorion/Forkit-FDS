@@ -13,7 +13,7 @@ ReactDOM.render(
       <Route path="/" component={App}>
         <IndexRoute component={IndexPage} />
         <Route path="search" component={Search} />
-        <Route path="restaurant/:id" component={Restaurant} />
+        <Route path="restaurants/:id" component={Restaurant} />
         <Route path="mypage" component={MyPage} />
         <Route path='*' status={404} component={PageNotFound} />
       </Route>

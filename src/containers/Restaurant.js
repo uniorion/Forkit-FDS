@@ -6,6 +6,8 @@ import PhotoCarousel from '../components/PhotoCarousel/PhotoCarousel';
 import RestaurantInfo from '../components/Restaurant/RestaurantInfo';
 import * as RestaurantActions from '../actions/restaurant';
 import { Link } from 'react-router';
+import ReviewList from '../components/Review/ReviewList';
+import ReviewItem from '../components/Review/ReviewItem';
 
 //Header, 지도, 페이징 컴포넌트와 검색/정렬 필터, 목록으로 구성됨
 
@@ -38,7 +40,6 @@ class Restaurant extends Component
   render(){
     return (
       <div>
-        <Header/>
         {
           this.props.restaurant.id &&
           <main>
@@ -46,7 +47,19 @@ class Restaurant extends Component
             <h2>Restaurant Detail {this.props.params.id}</h2>
             <div>{this.props.restaurant.address}</div>
             <PhotoCarousel images={this.props.restaurant.images} />
-            <RestaurantInfo restaurant={this.props.restaurant} />  
+            <div className="container">
+              <RestaurantInfo restaurant={this.props.restaurant}>
+                {this.props.restaurant.reviews && 
+                  <ReviewList reviews={this.props.restaurant.reviews}>
+                    {
+                      this.props.restaurant.reviews.map(review => 
+                        <ReviewItem key={review.id} review={review} />
+                      )
+                    }
+                  </ReviewList>
+                }
+              </RestaurantInfo>
+            </div>
           </main>
         }
       </div>

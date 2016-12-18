@@ -1,0 +1,69 @@
+.restaurant {
+  h3 {
+    font-size: 3.6rem;
+    color: $font-emphasis;
+  }
+  font-size: 1.4rem;
+
+  .description {
+    padding-top: 0.5em;
+  }
+}
+
+.restaurant-score {
+  display: flex;
+  padding-top: 1em;
+  dt {
+    margin-right: 1em;
+    font-size: 1.2rem;
+  }
+  dd {
+    margin-right: 1.5em;
+    font-size: 2.6rem;
+    color: $brand-main
+  }
+}
+
+.restaurant-detail {
+  margin-top: 1em;
+  border-top: 1px solid $horizen-divider;
+  li {
+    display: flex;
+    span {
+      display: block;
+      padding-top: 1em;
+      padding-right: 1em;
+      &:nth-of-type(1) {
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: 5em;
+      }
+      &:nth-of-type(2) {
+        flex-grow: 1;
+        flex-shrink: 1;
+      }
+    }
+  }
+}
+
+.restaurant-map {
+  background:#ff99ff;
+}
+
+@include desktop {
+  .restaurant-button-group {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    // > * {
+    //   background: transparent;
+    //   border: 2px solid #ff3c32;
+    //   border-radius: 10px;
+    //   margin-left: 10px;
+    // }
+    // * {
+      // padding: 5px;
+    // }
+  }
+}
+
