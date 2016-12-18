@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 // import logo from '../images/logo.svg';
 // import './App.css';
 // import './App.scss';
@@ -15,11 +15,11 @@ class App extends Component {
 
     const currentLocation = this.props.location.pathname;
     
-    let headerContainer = (<Header />);
+    let headerContainer = (<Header className="header" />);
     let footerContainer = (<Footer />);
 
-    let headerInvisiblePath = ['/'];
-    let footerInvisiblePath = [];
+    let headerInvisiblePath = [];
+    let footerInvisiblePath = ['/'];
 
     headerInvisiblePath.forEach(function(el) {
       let urlCheck = new RegExp(el+'$', 'i');

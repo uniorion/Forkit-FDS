@@ -1,29 +1,86 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+// import { Link } from 'react-router';
 
+import * as SearchActions from '../actions/search';
+import Map from '../components/Map/Map';
+import Condition from '../components/Search/Condition';
 import RestaurantList from '../components/Search/RestaurantList';
+import RestaurantItem from '../components/Search/RestaurantItem';
+import Pager from '../components/Pager/Pager';
 
-class Search extends Component{
+
+class Search extends Component
+{
+  componentDidMount(){
+    this.loadRestaurants(this.props.queryParams);
+  }
+  
+  componentWillReceiveProps(nextProps){
+    if( JSON.stringify(nextProps.search.queryParams) !== JSON.stringify(this.props.queryParams)){
+      this.loadRestaurants(nextProps.search.queryParams);
+    }
+  }
+
+  loadRestaurants(queryParams){
+    this.props.actions.fetchSearchIfNeeded(queryParams);
+  }
+
+  handleChangeOrdering(e) {
+    this.props.actions.handleOrdering(e.target.value);
+  }
+
   render(){
-    const query = this.props.location.query;
-    const page = query.page || 1;
-    const pageSize = query.pageSize || 10;
-
+  
+    const search = this.props.search;
+    
     return (
       <div>
-        <h2>Restaurant List {page} {pageSize}</h2>
-        <ul>
-          <li><Link to="restaurant/1">1번</Link></li>
-          <li><Link to="restaurant/2">2번</Link></li>
-          <li><Link to="restaurant/3">3번</Link></li>
-        </ul>
-        
-        <RestaurantList />
-        
+        <Map />
+        <div className="container">
+          <main className="grid-wrap">
+            <Condition 
+              queryParams={search.queryParams}
+              onChangeOrdering={this.handleChangeOrdering.bind(this)}
+            />
+            <RestaurantList>
+              {
+                search.items.map((restaurant, i) => 
+                  <RestaurantItem
+                    key={restaurant.id} 
+                    idx={i}
+                    restaurant={restaurant}
+                  >
+                  </RestaurantItem>
+                )
+              }
+              <Pager />
+            </RestaurantList>
+          </main>
+        </div>
       </div>
-
     );
   }
 }
 
-export default Search;
+const mapStateToProps = state => ({
+  isFetching: state.search.isFetching,
+  queryParams: {
+    pageSize:   state.search.queryParams.pageSize,
+    pageNum:    state.search.queryParams.pageNum,
+    search:     state.search.queryParams.search,
+    ordering:   state.search.queryParams.ordering,
+    filter:     state.search.queryParams.filter,
+  },
+  search:     state.search,
+});
+
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators({
+    fetchSearchIfNeeded: SearchActions.fetchSearchIfNeeded,
+    handleOrdering: SearchActions.changeOrdering,
+  }, dispatch)
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Search);

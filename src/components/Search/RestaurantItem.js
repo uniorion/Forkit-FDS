@@ -1,50 +1,68 @@
-import React, {Component} from 'react';
+import React from 'react';
 
-class RestaurantItem extends Component {
-  render () {
-    return (
-      <div>
-        <article>
-          <span>1</span>
-          <div><img src="http://lorempixel.com/300/200/food/" alt="" /></div>
-          <div>
-            <button type="button">prev</button>
-            <button type="button">next</button>
-          </div>
-          <div>
-            <span>1</span>/<span>10</span>
-          </div>
-        </article>
-        <div>
-          <em>새벽집</em>
-          <p>테이스티 로드 방영 맛집. 한우 등심, 우삼겹, 돼지 오겹살 등 소고기와 돼지고기를 모두 줄길 수 있는 곳.</p>
-          <dl>
-            <dt>평점</dt>
-            <dd>4.8</dd>
-            <dt>리뷰</dt>
-            <dd>55</dd>
-            <dt>좋아요</dt>
-            <dd>234</dd>
-          </dl>
-          <div>
-            <button type="button">좋아요</button>
-          </div>
-          <di>
-            <dt>태그</dt>
-            <dd>해장, 접대, 수요미식회, 무한도전맛집, 점심맛집</dd>
-            <dt>영업시간</dt>
-            <dd>24시간영업, 연중무휴</dd>
-            <dt>주소</dt>
-            <dd>청담동, 서울시 강남구 청담동 129-10</dd>
-            <dt>주차</dt>
-            <dd>발렛 가능</dd>
-            <dt>연락처</dt>
-            <dd>02-555-1234</dd>
-          </di>
-        </div>
+const RestaurantItem = ({restaurant, idx, children}) => (
+  <div className="restaurant row">
+    <div className="cell-d-1-3">
+      {/*<span className="item-num">{idx + 1}</span>*/}
+      <div className="photo-carousel">
+        <img src={restaurant.images[0].img_s} alt={restaurant.images[0].alt} />
       </div>
-    );
-  }
-}
+       {/*
+      <div>
+        <button type="button">prev</button>
+        <button type="button">next</button>
+      </div>
+      <div>
+        <span>1</span>/<span>10</span>
+      </div>
+      */}
+    </div>
+    <div className="cell-d-1-3">
+      <em>{restaurant.name}</em>
+      <p>{restaurant.description}</p>
+      <ul>
+        <li>
+          <p>평점</p>
+          <em>{   restaurant.review_average.toString().indexOf('.') > -1 
+                ? parseFloat(restaurant.review_average).toFixed(1) 
+                : restaurant.review_average}</em>
+        </li>
+        <li>
+          <p>리뷰</p>
+          <em>{   restaurant.review_count.toString().indexOf('.') > -1 
+                ? parseFloat(restaurant.review_count).toFixed(1) 
+                : restaurant.review_count}</em>
+        </li>
+        <li>
+          <p>좋아요</p>
+          <em>{   restaurant.total_like.toString().indexOf('.') > -1 
+                ? parseFloat(restaurant.total_like).toFixed(1) 
+                : restaurant.total_like}</em>
+        </li>
+      </ul>
+      <div>
+        <button className={true ? 'active' : '' } type="button"><i></i>좋아요</button>
+      </div>
+    </div>
+    <div className="cell-d-1-3">
+      <dl>
+        <dt>태그</dt>
+        <dd>
+            {restaurant.tags.map(tag =>
+              <span key={tag.id}>{tag.name}</span>
+            )}
+        </dd>
+        <dt>영업시간</dt>
+        <dd>{restaurant.operation_hour}</dd>
+        <dt>주소</dt>
+        <dd>{restaurant.address}</dd>
+        <dt>주차</dt>
+        <dd>{restaurant.desc_parking}</dd>
+        <dt>연락처</dt>
+        <dd>{restaurant.phone}</dd>
+      </dl>
+    </div>
+  </div>
+);
 
 export default RestaurantItem;
