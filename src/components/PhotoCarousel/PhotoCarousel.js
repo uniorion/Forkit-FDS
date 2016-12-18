@@ -2,6 +2,10 @@ import React, {Component} from 'react';
 // import {Link} from 'react-router';
 import Slider from 'react-slick';
 
+const DESKTOP_SLIDE_COUNT = 4;
+const MOBILE_SLIDE_COUNT = 3;
+const MOBILE_SLIDE_BREAKPOINT = 600;
+
 class PhotoCarousel extends Component
 {
   // constructor(props){
@@ -15,40 +19,43 @@ class PhotoCarousel extends Component
   previous(){
     this.refs.slider.slickPrev();
   }
-  render(){
-    // return (
-    //   <article className="photo-carousel">
-    //     <img src="http://lorempixel.com/400/300/food/1" alt="" />
-    //     <img src="http://lorempixel.com/400/300/food/2" alt="" />
-    //     <img src="http://lorempixel.com/400/300/food/3" alt="" />
-    //     <img src="http://lorempixel.com/400/300/food/4" alt="" />
-    //   </article>
-    // );
-    const desktopMax = 4;
-    const moreMax = this.props.images ? this.props.images.length > desktopMax : false;
 
+  fillDefaultSlides(){
+    let imageCount = this.props.images ? this.props.images.length : 0;
+    let maxCount = MOBILE_SLIDE_BREAKPOINT > window.innerWidth ? MOBILE_SLIDE_COUNT : DESKTOP_SLIDE_COUNT;
+
+    let defaultSlides = [];
+    for(let i=0, l=maxCount-imageCount; i < l; i++){
+      defaultSlides.push(<div className='default-slide' key={`default_${i}`}>default</div>);
+    }
+    return defaultSlides;
+  }
+
+  render(){
+  
     let settings = {
       accessibility: true,
       // adaptiveHeight: true,
       arrows: false,
       dots: true,
-      infinite: moreMax,
+      infinite: true,
       speed: 500,
-      slidesToShow: 4,
+      slidesToShow: DESKTOP_SLIDE_COUNT,
       slidesToScroll: 4,
       cssEase: 'ease',
       easing: 'ease-out',
-      // touchThreshold: 5,
+      touchThreshold: 5,
       responsive: [ 
         { 
-          breakpoint: 600, 
+          breakpoint: MOBILE_SLIDE_BREAKPOINT, 
           settings: 
           { 
             dots: false,
-            slidesToShow: 3, 
+            slidesToShow: MOBILE_SLIDE_COUNT, 
             slidesToScroll: 1,
             swipe: true,
-            swipeToSlide: true
+            swipeToSlide: true,
+            touchThreshold: 10
           }
         }
         // ,
@@ -61,19 +68,20 @@ class PhotoCarousel extends Component
           <Slider ref="slider" {...settings}>
             {
               this.props.images.map(img => 
-                <div key={img.id}><img src={img.img_t} alt={img.alt} /></div>
+                <div key={img.id}><img src={img.img_s} alt={img.alt} /></div>
               )
             }
+            {this.fillDefaultSlides()}
             {/*
-            <div><img src="http://lorempixel.com/400/300/food/1" alt="" /></div>
-            <div><img src="http://lorempixel.com/400/300/food/2" alt="" /></div>
-            <div><img src="http://lorempixel.com/400/300/food/3" alt="" /></div>
+            <div key="k1"><img src="http://lorempixel.com/400/300/food/1" alt="" /></div>
+            <div key="k2"><img src="http://lorempixel.com/400/300/food/2" alt="" /></div>
+            <div key="k3"><img src="http://lorempixel.com/400/300/food/3" alt="" /></div>
             <div><img src="http://lorempixel.com/400/300/food/4" alt="" /></div>
-            */}
             <div><img src="http://lorempixel.com/400/300/food/5" alt="" /></div>
             <div><img src="http://lorempixel.com/400/300/food/6" alt="" /></div>
             <div><img src="http://lorempixel.com/400/300/food/1" alt="" /></div>
             <div><img src="http://lorempixel.com/400/300/food/2" alt="" /></div>
+            */}
           </Slider>
           : null
         }

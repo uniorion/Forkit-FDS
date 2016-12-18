@@ -8,15 +8,57 @@
     font-size: 1.6rem;
     color: #898989;
   }
+}
 
-  .score {
+.restaurant-score {
+  display: flex;
+  dt {
+    margin-right: 1em;
+  }
+  dd {
+    margin-right: 1.5em;
+    font-size: 2.6rem;
+  }
+}
+
+.restaurant-detail {
+  li {
     display: flex;
-    dt {
-      margin-right: 1em;
+    span {
+      display: block;
+      padding-top: 1em;
+      padding-right: 1em;
+      &:nth-of-type(1) {
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: 5em;
+      }
+      &:nth-of-type(2) {
+        flex-grow: 1;
+        flex-shrink: 1;
+      }
     }
-    dd {
-      margin-right: 1.5em;
-      font-size: 2.6rem;
+  }
+}
+
+.restaurant-map {
+  background:#ff99ff;
+}
+
+@include desktop {
+  .restaurant-button-group {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    > * {
+      background: transparent;
+      border: 2px solid #ff3c32;
+      border-radius: 10px;
+      margin-left: 10px;
+    }
+    * {
+
+      padding: 5px;
     }
   }
 }

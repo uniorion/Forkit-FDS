@@ -7,13 +7,17 @@
   // margin-bottom: 30px;
   img{
     width: 100%;
-    height: auto;
+    // height: 100%;
   }
 }
 
-.slick-slider {
-    margin-bottom: 0;
-}
+// .slick-container {
+//   height: 24vw;
+// }
+// .slick-slider, .slick-list, .slick-track {
+//   height: 100%;
+// }
+
 
 .slider-btn-prev {
   position: absolute;
@@ -31,12 +35,16 @@
   z-index: 1000;
 }
 
-.slick-dots{
+.slick-dots {
   bottom: 10px;
-  li{
+  li {
     margin: 0 10px;
-    button:before{
+    button::before {
       font-size: 20px;
     }
   }
+}
+
+.default-slide {
+  background: #aaa;
 }
