@@ -5,6 +5,11 @@
   justify-content: $h-align;
 }
 
+@mixin background-img($img-url, $width: auto, $height: auto) {
+  background: url($img-url) no-repeat;
+  background-size: $width $height;
+}
+
 %clearfix {
   &:after {
     content: '';
@@ -13,3 +18,9 @@
   }
 }
 
+%ir {
+	display: block;
+	text-indent: -9999em;
+	white-space: nowrap;
+	overflow: hidden;
+}
