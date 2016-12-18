@@ -1,8 +1,18 @@
 @import "func";
 
-// base/_variables.scss 에 변수값 설정.
-// base/_mixin.scss 에 media-query 설정.
+$bp-desktop: 1024px !default;
 
+// 숨김 설정.
+@include mobile {
+  .m-hidden {
+    display: none;
+  }
+}
+@include desktop {
+  .d-hidden{
+    display: none;
+  }  
+}
 /* ------------------------------------------------------------------
  *                Grid System
  *

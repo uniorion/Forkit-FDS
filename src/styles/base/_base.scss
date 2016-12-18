@@ -2,7 +2,9 @@
 @import "fonts";
 @import "mixin";
 @import "layout";
+@import "reset";
 
 html {
   font-size: $base-font-size;
+  color: $font-base;
 }

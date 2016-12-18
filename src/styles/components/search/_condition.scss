@@ -1,0 +1,53 @@
+.condition {
+  .row:nth-child(1) {
+    & > div:nth-child(1) {
+      @include flex-align(null, center);
+    }
+    & > div:nth-child(2) {
+      @include flex-align(flex-end, null);
+    }
+
+    h3 {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: $font-emphasis;
+      em {
+        color: $brand-main;
+      }
+    }
+    
+    select {
+      border: 0;
+      border-radius: .4rem;
+      background: url('../images/bg-divider.png') no-repeat 75% 50%, url('../images/icon-arrow.png') no-repeat 90% 50%, $mini-panel-back;
+      font-size: 1.2rem;
+      font-weight: bold;
+      @include padding(left 1.07em);
+      @include size(14rem 3.6rem);
+    }
+  }
+
+  .row:nth-child(2) {
+    border-top: 1px solid $horizen-divider;
+    @include margin(top 2rem);
+    @include padding(top 2em);
+    ul {
+      @extend %clearfix;
+      li {
+        float: left;
+        font-size: 1.4rem;
+        @include padding(right 1em);
+        &:not(:last-child):after {
+          content: '|';
+          font-size: 1.2rem;
+          vertical-align: top;
+          @include padding(left 1em);
+        }
+        a.active {
+          font-weight: bold;
+          color: $brand-main;
+        }
+      }
+    }
+  }
+}

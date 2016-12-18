@@ -1,0 +1,80 @@
+.restaurant {
+  @include margin(top 5rem);
+
+  &>div:nth-child(1) {
+    @include padding(right 1.5rem);
+    .photo-carousel img {
+      border-radius: .5rem;
+      @include rwd-image(100%);
+    }
+  }
+
+  &>div:nth-child(2) {
+    position: relative;
+    @include padding(right 1.5rem);
+    &>em {
+      display: inline-block;
+      font-size: 3.6rem;
+      font-weight: bold;
+      color: $font-emphasis;
+      @include size(25rem null);
+      &+p {
+        font-size: 1.6rem;
+        @include padding(top .66em);
+      }
+    }
+    
+    ul {
+      position: absolute;
+      bottom: 0;
+      @extend %clearfix;
+      li {
+        float: left;
+        border-radius: .5rem;
+        background: $mini-panel-back;
+        font-size: 1.4rem;
+        flex-direction: column;
+        @include flex-align(space-around, center);
+        @include margin(right 1rem);
+        @include size(9rem 7rem);
+        p {
+          font-size: 1.4rem;
+          color: $font-emphasis;
+        }
+        em {
+          font-size: 3rem;
+          font-weight: normal;
+          color: $brand-main;
+        }
+      }
+    }
+
+    button {
+      position: absolute;
+      top: .5rem;
+      right: 2rem;
+      border: 1px solid $brand-main;
+      border-radius: 2rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: $brand-main;
+      @include size(8rem 3rem);
+      i {
+        display: inline-block;
+        background: url('../images/icon-heart.png') no-repeat;
+        vertical-align: middle;
+        @include padding(right .5em);
+        @include size(1.6rem 1.4rem);
+      }
+      &.active {
+        background: $brand-main;
+        color: $white;
+      }
+    } 
+  }
+
+  &>div:nth-child(3) {
+
+  }
+  
+}

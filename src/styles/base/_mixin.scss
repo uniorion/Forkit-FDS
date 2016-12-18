@@ -1,25 +1,14 @@
-// _variables.scss 에 변수값 설정.
-
-// 반응형 구현을 위한 media-query.
-@mixin mobile {
-  @media (max-width: #{$bp-desktop}) {
-    @content;
-  }
-}
-@mixin desktop{
-  @media (min-width: #{$bp-desktop + 1}) {
-    @content;
-  }
+// 공통 mixin, function 
+@mixin flex-align($h-align: flex-start, $v-align: stretch) {
+  display: flex;
+  align-items: $v-align;
+  justify-content: $h-align;
 }
 
-// 숨김 설정.
-@include mobile {
-  .m-hidden {
-    display: none;
+%clearfix {
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
   }
-}
-@include desktop {
-  .d-hidden{
-    display: none;
-  }  
 }

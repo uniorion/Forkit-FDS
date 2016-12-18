@@ -1,1 +1,9 @@
-//Header, 지도, 페이징, 검색/정렬 필터, 맛집목록으로 구성됨
+import React from 'react';
+
+const RestaurantList = ({children}) => (
+  <div>
+    {children}
+  </div>
+);
+
+export default RestaurantList;
