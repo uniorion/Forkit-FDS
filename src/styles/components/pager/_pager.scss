@@ -1,0 +1,44 @@
+.pager {
+  border-top: 1px solid $horizen-divider;
+  @include margin(top 5rem);
+  @include padding(top 2.5em);
+  &>:first-child {
+    @include flex-align(center, center);
+  }
+  ul {
+    display: inline-block;
+    border-radius: .5rem;
+    @extend %clearfix;
+    li {
+      float: left;
+      a {
+        @include flex-align(center, center);
+        @include size(2.8rem);
+        @include font(size 1.6rem);
+        &.active,
+        &:hover,
+        &:focus {
+          color: #fff;
+        }
+        &.active {
+          background: $brand-main;
+        }
+        &:not(.active):hover,
+        &:not(.active):focus {
+          background: $font-base;
+          transition: $base-transition-sec all;
+        }
+      }
+    }
+    li:first-child,
+    li:last-child {
+      @include margin(left 1rem right 1rem);
+      a, 
+      a:hover,
+      a:focus {
+        color: $font-base;
+        background: #fff;
+      }
+    }
+  }
+}

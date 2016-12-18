@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import LikeButton from '../Restaurant/LikeButton';
 
 const RestaurantItem = ({restaurant, idx, children}) => (
-  <div className="restaurant row">
+  <div className="restaurants row">
     <div className="cell-d-1-3">
       {/*<span className="item-num">{idx + 1}</span>*/}
       <div className="photo-carousel">
