@@ -1,4 +1,5 @@
 .condition {
+  @include margin(top 3rem);
   .row:nth-child(1) {
     & > div:nth-child(1) {
       @include flex-align(null, center);
@@ -9,7 +10,7 @@
 
     h3 {
       color: $font-emphasis;
-      @include font(size 1.8rem weight bold);
+      @include font(size 2.2rem);
       em {
         color: $brand-main;
       }
