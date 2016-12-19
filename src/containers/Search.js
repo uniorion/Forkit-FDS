@@ -39,7 +39,7 @@ class Search extends Component
       <div>
         <Map />
         <div className="container">
-          <main className="grid-wrap">
+          <main className="main grid-wrap">
             <Condition 
               queryParams={search.queryParams}
               onChangeOrdering={this.handleChangeOrdering.bind(this)}
