@@ -16,3 +16,6 @@ npm-debug.log
 
 #visual studio code config
 .vscode
+
+# api-key
+ApiKey.js
