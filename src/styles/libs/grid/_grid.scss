@@ -117,9 +117,6 @@ $gutter               : 20px;
 [class*="cell-"] {
   box-sizing: border-box;
   flex: 1;
-  &.padding10 {
-    padding: 10px;
-  }
 }
 
 $numList: makeList($columns);

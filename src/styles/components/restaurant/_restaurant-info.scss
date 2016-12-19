@@ -10,6 +10,10 @@
   }
 }
 
+// .restaurant-info {
+  // padding: 1.4rem;
+// }
+
 .restaurant-score {
   display: flex;
   padding-top: 1em;
@@ -24,7 +28,7 @@
   }
 }
 
-.restaurant-detail {
+.restaurant-info-detail {
   margin-top: 1em;
   border-top: 1px solid $horizen-divider;
   li {

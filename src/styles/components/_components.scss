@@ -1,3 +1,4 @@
+@import 'reivew/review-list';
 @import 'reivew/review-item';
 @import 'photoCarousel/_photo-carousel';
 @import 'restaurant/food-menu';
@@ -15,8 +16,12 @@
   padding-top: 0.5rem;
   @include size(8rem 2.6rem);
   i{
-    font-weight: 700;
+    font-weight: 400;
   }
+}
+
+.button .fa-heart-o {
+  font-weight: 700;
 }
 
 // .like-button{
