@@ -16,7 +16,7 @@ export const fetchRestaurantsIfNeeded = () => (dispatch) => {
     .then(response => response.json())
     .then(json => dispatch(receiveRestaurants(json)))
     .catch(function(ex){
-      console.log(ex);
+      console.error(ex);
     });
 };
 
@@ -36,11 +36,10 @@ export const fetchRestaurantIfNeeded = id => (dispatch) => {
   })
     .then(response => response.json())
     .then(function(json){
-      console.log(json);
       return json;
     })
     .then(json => dispatch(receiveRestaurant(json)))
     .catch(function(ex){
-      console.log(ex);
+      console.error(ex);
     });
 };

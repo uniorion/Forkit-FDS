@@ -1,5 +1,4 @@
 import React from 'react';
-import FoodMenu from './FoodMenu';
 import Map from '../Map/Map';
 import LikeButton from './LikeButton';
 
@@ -8,7 +7,7 @@ const RestaurantInfo = ({ restaurant, children }) => (
     {/* 맛집 상세정보 */}
     
     <div className="row">
-      <div className="padding10 cell-d-2-3 cell-m-1-1">
+      <div className="restaurant-info cell-d-2-3 cell-m-1-1">
         <div className="row">
           <div className="cell-d-1-2 cell-m-1-1">
             <h3>{restaurant.name}</h3>
@@ -23,13 +22,13 @@ const RestaurantInfo = ({ restaurant, children }) => (
             </dl>
           </div>
           <div className="restaurant-button-group cell-d-1-2 cell-m-1-1">
-            <LikeButton className='button' mylike={true} toggleLike={null} />
+            <LikeButton className='button' mylike={false} toggleLike={null} />
             <button className="button"><i className="fa fa-pencil" aria-hidden="true"></i> 리뷰쓰기</button>
           </div>
         </div>
         <div className="row">
           <div className="cell-d-1-1 cell-m-1-1">
-            <ul className="restaurant-detail">
+            <ul className="restaurant-info-detail">
               <li><span>Tags</span> <span>{restaurant.tags.map(tag => tag.name).join(', ')}식당, 베트남, 세계음식식당, 베트남, 세계음식식당, 베트남, 세계음식식당, 베트남, 세계음식</span></li>
               <li><span>영업시간</span> <span>{restaurant.operation_hour}</span></li>
               <li><span>주소</span> <span>{restaurant.address}</span></li>
@@ -37,7 +36,6 @@ const RestaurantInfo = ({ restaurant, children }) => (
               <li><span>연락처</span> <span>{restaurant.phone}</span></li>
             </ul>
           </div>
-          {/*<FoodMenu className="cell-d-1-2 cell-m-1-1" menus={restaurant.menus} />*/}
         </div>
       </div>
       <Map className="cell-d-1-3 cell-m-1-1 restaurant-map"></Map>
