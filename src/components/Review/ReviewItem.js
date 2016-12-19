@@ -21,7 +21,7 @@ class ReviewItem extends Component
     // let imgCount = 0; 작업중
     return (
       <li>
-        <img src='http://lorempixel.com/100/100/people/1' alt="" /> <span>{review.author}</span>
+        {/*<img src='http://lorempixel.com/100/100/people/1' alt="" /> <span>{review.author}</span>*/}
         <Rating />
         <div>
           <button>like {review.like}</button>
