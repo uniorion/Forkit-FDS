@@ -10,5 +10,5 @@ html {
 }
 
 body {
-  @include font(family $base-font-family)
+  @include font(family $base-font-family);
 }

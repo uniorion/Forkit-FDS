@@ -8,9 +8,8 @@
     }
 
     h3 {
-      font-size: 1.8rem;
-      font-weight: bold;
       color: $font-emphasis;
+      @include font(size 1.8rem weight bold);
       em {
         color: $brand-main;
       }
@@ -20,10 +19,9 @@
       border: 0;
       border-radius: .4rem;
       background: url('../images/bg-divider.png') no-repeat 75% 50%, url('../images/icon-arrow.png') no-repeat 90% 50%, $mini-panel-back;
-      font-size: 1.2rem;
-      font-weight: bold;
       @include padding(left 1.07em);
       @include size(14rem 3.6rem);
+      @include font(size 1.2rem weight bold);
     }
   }
 
@@ -35,17 +33,17 @@
       @extend %clearfix;
       li {
         float: left;
-        font-size: 1.4rem;
         @include padding(right 1em);
+        @include font(size 1.4rem);
         &:not(:last-child):after {
           content: '|';
-          font-size: 1.2rem;
           vertical-align: top;
           @include padding(left 1em);
+          @include font(size 1.4rem);
         }
         a.active {
-          font-weight: bold;
           color: $brand-main;
+          @include font(weight bold);
         }
       }
     }

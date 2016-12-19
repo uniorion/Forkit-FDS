@@ -1,4 +1,4 @@
-.restaurant {
+.restaurants {
   @include margin(top 5rem);
 
   &>div:nth-child(1) {
@@ -14,13 +14,14 @@
     @include padding(right 1.5rem);
     &>em {
       display: inline-block;
-      font-size: 3.6rem;
-      font-weight: bold;
-      color: $font-emphasis;
+      @include font(size 3.6rem weight bold);
       @include size(25rem null);
       &+p {
-        font-size: 1.6rem;
-        @include padding(top .66em);
+        @include font(size 1.8rem line-height $base-line-height);
+        @include padding(top 1em);
+      }
+      a {
+        color: $font-emphasis;
       }
     }
     
@@ -31,18 +32,18 @@
       li {
         float: left;
         border-radius: .5rem;
-        background: $mini-panel-back;
-        font-size: 1.4rem;
+        // background: $mini-panel-back;
         flex-direction: column;
         @include flex-align(space-around, center);
         @include margin(right 1rem);
         @include size(9rem 7rem);
+        @include font(size 1.4rem);
         p {
-          font-size: 1.4rem;
+          @include font(size 1.4rem);
           color: $font-emphasis;
         }
         em {
-          font-size: 3rem;
+          @include font(size 3rem);
           font-weight: normal;
           color: $brand-main;
         }
@@ -53,28 +54,20 @@
       position: absolute;
       top: .5rem;
       right: 2rem;
-      border: 1px solid $brand-main;
-      border-radius: 2rem;
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: $brand-main;
-      @include size(8rem 3rem);
-      i {
-        display: inline-block;
-        background: url('../images/icon-heart.png') no-repeat;
-        vertical-align: middle;
-        @include padding(right .5em);
-        @include size(1.6rem 1.4rem);
-      }
-      &.active {
-        background: $brand-main;
-        color: #fff;
-      }
+      cursor: default;
     } 
   }
 
   &>div:nth-child(3) {
-
+    @include padding(left 1rem);
+    dt, dd {
+      display: inline-block;
+      @include font(size 1.4rem);
+      @include padding(right .6em bottom 1.5em);
+    }
+    dt {
+      width: 20px;
+      text-align: center;
+    }
   }
-  
 }

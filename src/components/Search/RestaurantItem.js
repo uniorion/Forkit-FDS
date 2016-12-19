@@ -1,7 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router';
+import LikeButton from '../Restaurant/LikeButton';
 
 const RestaurantItem = ({restaurant, idx, children}) => (
-  <div className="restaurant row">
+  <div className="restaurants row">
     <div className="cell-d-1-3">
       {/*<span className="item-num">{idx + 1}</span>*/}
       <div className="photo-carousel">
@@ -18,8 +20,8 @@ const RestaurantItem = ({restaurant, idx, children}) => (
       */}
     </div>
     <div className="cell-d-1-3">
-      <em>{restaurant.name}</em>
-      <p>{restaurant.description}</p>
+      <em><Link to={`restaurants/${restaurant.id}`}>{restaurant.name}</Link></em>
+      <p><Link to={`restaurants/${restaurant.id}`}>{restaurant.description}</Link></p>
       <ul>
         <li>
           <p>평점</p>
@@ -40,26 +42,20 @@ const RestaurantItem = ({restaurant, idx, children}) => (
                 : restaurant.total_like}</em>
         </li>
       </ul>
-      <div>
-        <button className={true ? 'active' : '' } type="button"><i></i>좋아요</button>
-      </div>
+      <LikeButton className='button' mylike={restaurant.my_like} toggleLike={null} />
     </div>
     <div className="cell-d-1-3">
       <dl>
-        <dt>태그</dt>
-        <dd>
-            {restaurant.tags.map(tag =>
-              <span key={tag.id}>{tag.name}</span>
-            )}
-        </dd>
-        <dt>영업시간</dt>
-        <dd>{restaurant.operation_hour}</dd>
-        <dt>주소</dt>
-        <dd>{restaurant.address}</dd>
-        <dt>주차</dt>
-        <dd>{restaurant.desc_parking}</dd>
-        <dt>연락처</dt>
-        <dd>{restaurant.phone}</dd>
+        <dt><i className="fa fa-tags" aria-label="태그"></i></dt>
+        <dd>{restaurant.tags.map(tag => tag.name).join(', ')}</dd><br/>
+        <dt><i className="fa fa-clock-o" aria-label="영업시간"></i></dt>
+        <dd>{restaurant.operation_hour}</dd><br/>
+        <dt><i className="fa fa-map-marker" aria-label="주소"></i></dt>
+        <dd>{restaurant.address}</dd><br/>
+        <dt><i className="fa fa-car" aria-label="주차"></i></dt>
+        <dd>{restaurant.desc_parking}</dd><br/>
+        <dt><i className="fa fa-phone" aria-label="연락처"></i></dt>
+        <dd>{restaurant.phone}</dd><br/>
       </dl>
     </div>
   </div>
