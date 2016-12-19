@@ -1,9 +1,9 @@
 import React, {Component, PropTypes} from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import Header from '../components/Common/Header';
 import PhotoCarousel from '../components/PhotoCarousel/PhotoCarousel';
 import RestaurantInfo from '../components/Restaurant/RestaurantInfo';
+import Spinner from '../components/Common/Spinner';
 import * as RestaurantActions from '../actions/restaurant';
 import { Link } from 'react-router';
 import ReviewList from '../components/Review/ReviewList';
@@ -25,8 +25,6 @@ class Restaurant extends Component
 
   //컴포넌트가 prop을 받을때 실행(params 변경시)
   componentWillReceiveProps(nextProps){
-    console.log(nextProps.params.id);
-    console.log(this.props.params.id);
     if(nextProps.params.id !== this.props.params.id){
       this.loadRestaurant(nextProps.params.id);
     }
@@ -62,6 +60,7 @@ class Restaurant extends Component
             </div>
           </main>
         }
+        <Spinner isFetching={this.props.isFetching} />
       </div>
     );
   }
@@ -72,7 +71,6 @@ class Restaurant extends Component
 //   restaurant: state.restaurant.info
 // });
 const mapStateToProps = (state, ownProps) => {
-  console.log(state);
   return {
     isFetching: state.restaurant.isFetching,
     restaurant: state.restaurant.info
