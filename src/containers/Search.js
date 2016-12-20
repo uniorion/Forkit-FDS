@@ -37,7 +37,10 @@ class Search extends Component
     
     return (
       <div>
-        <Map />
+        <Map 
+          items={search.items} // [ {latitude: 37.51., longitude: 127.07 }, ..]
+          styleClassName="search-map" // className 명
+        />
         <div className="container">
           <main className="main grid-wrap">
             <Condition 

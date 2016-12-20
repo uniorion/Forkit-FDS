@@ -24,3 +24,7 @@ export const CHANGE_ORDERING     = 'CHANGE_ORDERING';
 
 // Forms
 export const SEARCH_INPUT_CHANGE = 'SEARCH_INPUT_CHANGE';
+
+// Google map api
+export const REQUEST_GOOGLE_MAP_API = 'REQUEST_GOOGLE_MAP_API';
+export const RECEIVE_GOOGLE_MAP_API = 'RECEIVE_GOOGLE_MAP_API';
