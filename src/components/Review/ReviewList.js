@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import ReviewItem from './ReviewItem';
 // import {Link} from 'react-router';
 
 class ReviewList extends Component

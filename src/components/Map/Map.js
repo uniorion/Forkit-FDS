@@ -49,21 +49,21 @@ export default class Map extends Component {
   }
 
   componentDidUpdate() {
-    let bounds = new google.maps.LatLngBounds();
+    let bounds = new window.google.maps.LatLngBounds();
 
     if (this._timeoutId) {
       clearTimeout(this._timeoutId);
     }
 
     for (let i = 0; i < this.props.items.length; i++) {
-      bounds.extend(new google.maps.LatLng({lat: this.props.items[i].latitude, lng: this.props.items[i].longitude}));
+      bounds.extend(new window.google.maps.LatLng({lat: this.props.items[i].latitude, lng: this.props.items[i].longitude}));
     }
 
     // 마커가 하나여서 zoom이 너무 클 경우 bounds 임의 확장
     if (   (this.props.items.length === 1) 
         && bounds.getNorthEast().equals(bounds.getSouthWest())) {
-      let extendPoint1 = new google.maps.LatLng(bounds.getNorthEast().lat() + 0.01, bounds.getNorthEast().lng() + 0.01);
-      let extendPoint2 = new google.maps.LatLng(bounds.getNorthEast().lat() - 0.01, bounds.getNorthEast().lng() - 0.01);
+      let extendPoint1 = new window.google.maps.LatLng(bounds.getNorthEast().lat() + 0.01, bounds.getNorthEast().lng() + 0.01);
+      let extendPoint2 = new window.google.maps.LatLng(bounds.getNorthEast().lat() - 0.01, bounds.getNorthEast().lng() - 0.01);
       bounds.extend(extendPoint1);
       bounds.extend(extendPoint2);
     }
