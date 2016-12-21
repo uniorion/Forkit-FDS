@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {browserHistory} from 'react-router';
 
 class SearchBar extends Component {
 
@@ -24,8 +25,23 @@ class SearchBar extends Component {
    
   handleKeyPress(e) {
     if ( e.charCode === 13 ) {
-      this.props.onSearch(this.state.searchKeywordValue);
+      this.search();
     }
+  }
+
+  handleClick(e) {
+    this.search();
+  }
+
+  search(){
+    const SEARCHPATH = '/search';
+
+    if(SEARCHPATH !== this.props.currentLocation.pathname)
+    {
+      browserHistory.push(SEARCHPATH);
+    }
+
+    this.props.onSearch(this.state.searchKeywordValue);
   }
 
   render() {
@@ -37,7 +53,7 @@ class SearchBar extends Component {
                 onKeyPress={this.handleKeyPress.bind(this)}
                 onChange={this.handleChange.bind(this)}
               />
-              <button><i className="fa fa-search" aria-hidden="true"></i></button>
+              <button onClick={(e) => this.handleClick(e)}><i className="fa fa-search" aria-hidden="true"></i></button>
             </div>
     );
   }

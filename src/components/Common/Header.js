@@ -24,6 +24,7 @@ class Header extends Component
             <SearchBar className="cell-d-1-2 cell-m-4-6 header-search"
               search={this.props.search}
               onSearch={this.handleOnSearch.bind(this)}
+              currentLocation={this.props.currentLocation}
             />
             <UserInfo className="cell-d-1-4 cell-m-1-6" />
           </div>
