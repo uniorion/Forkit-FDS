@@ -42,7 +42,12 @@ const RestaurantInfo = ({ restaurant, children }) => (
           </div>
         </div>
       </div>
-      {/*<Map items={[{latitude: restaurant.latitude, longitude: restaurant.longitude}]} className="cell-d-1-3 cell-m-1-1 restaurant-map"></Map>*/}
+      <Map 
+       items={[restaurant]}
+       zoom='14'
+       containerClassName="cell-d-1-3 cell-m-1-1 restaurant-map" 
+       mapClassName="cell-d-1-3 cell-m-1-1 restaurant-map"
+     />
     </div>
     {/* 리뷰목록 */}
     {children}
