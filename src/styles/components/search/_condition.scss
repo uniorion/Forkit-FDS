@@ -3,6 +3,9 @@
   .row:nth-child(1) {
     & > div:nth-child(1) {
       @include flex-align(null, center);
+      @include mobile() {
+        display: none;
+      }
     }
     & > div:nth-child(2) {
       @include flex-align(flex-end, null);
