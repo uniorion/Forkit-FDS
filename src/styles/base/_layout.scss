@@ -3,24 +3,34 @@
 
 .header {
   position: fixed;
+  z-index: 999999;
   top: 0;
   width: 100%;
-  height: 60px;
+  height: $header-height-desktop;
+  box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.75);
   background: $brand-main;
+  box-sizing: border-box;
+  @include padding(left 1.4rem right 1.4rem);
+}
+
+.header + div {
+  margin-top: $header-height-desktop;
+  margin-bottom: $footer-height-desktop
 }
 
 .header-content {
-  width: 100%;
-  height: 200px;
+  margin: 0 auto;
+  height: 100%;
 }
 
 .footer {
   width: 100%;
-  height: 60px;
+  height: $footer-height-desktop;
 }
 
 .container {
-  @include margin(left 1.4rem right 1.4rem);
+  box-sizing: border-box;
+  @include padding(left 1.4rem right 1.4rem);
   @include desktop {
     @include margin(left 0 right 0)
   }

@@ -41,9 +41,6 @@ class Restaurant extends Component
         {
           this.props.restaurant.id &&
           <main>
-            <Link to="restaurant/3">3번</Link>
-            <h2>Restaurant Detail {this.props.params.id}</h2>
-            <div>{this.props.restaurant.address}</div>
             <PhotoCarousel images={this.props.restaurant.images} />
             <div className="container">
               <RestaurantInfo restaurant={this.props.restaurant}>

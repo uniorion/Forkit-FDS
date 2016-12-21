@@ -9,9 +9,13 @@ const RestaurantInfo = ({ restaurant, children }) => (
     <div className="row">
       <div className="restaurant-info cell-d-2-3 cell-m-1-1">
         <div className="row">
-          <div className="cell-d-1-2 cell-m-1-1">
+          <div className="cell-d-1-1 cell-m-1-1">
             <h3>{restaurant.name}</h3>
             <p className="description">{restaurant.description}</p>
+          </div>
+        </div>
+        <div className="row">
+          <div className="celld-1-2 cell-m-1-1">
             <dl className="restaurant-score">
               <dt>평점</dt>
               <dd>{restaurant.review_average.toFixed(1)}</dd>
@@ -29,16 +33,16 @@ const RestaurantInfo = ({ restaurant, children }) => (
         <div className="row">
           <div className="cell-d-1-1 cell-m-1-1">
             <ul className="restaurant-info-detail">
-              <li><span>Tags</span> <span>{restaurant.tags.map(tag => tag.name).join(', ')}식당, 베트남, 세계음식식당, 베트남, 세계음식식당, 베트남, 세계음식식당, 베트남, 세계음식</span></li>
-              <li><span>영업시간</span> <span>{restaurant.operation_hour}</span></li>
-              <li><span>주소</span> <span>{restaurant.address}</span></li>
-              <li><span>주차</span> <span>{restaurant.desc_parking}</span></li>
-              <li><span>연락처</span> <span>{restaurant.phone}</span></li>
+              <li><i className="fa fa-tags" aria-label="태그"></i> <span>{restaurant.tags.map(tag => tag.name).join(', ')}식당, 베트남, 세계음식식당, 베트남, 세계음식식당, 베트남, 세계음식식당, 베트남, 세계음식</span></li>
+              <li><i className="fa fa-clock-o" aria-label="영업시간"></i> <span>{restaurant.operation_hour}</span></li>
+              <li><i className="fa fa-map-marker" aria-label="주소"></i> <span>{restaurant.address}</span></li>
+              <li><i className="fa fa-car" aria-label="주차"></i> <span>{restaurant.desc_parking}</span></li>
+              <li><i className="fa fa-phone" aria-label="연락처"></i> <span>{restaurant.phone}</span></li>
             </ul>
           </div>
         </div>
       </div>
-      <Map className="cell-d-1-3 cell-m-1-1 restaurant-map"></Map>
+      {/*<Map items={[{latitude: restaurant.latitude, longitude: restaurant.longitude}]} className="cell-d-1-3 cell-m-1-1 restaurant-map"></Map>*/}
     </div>
     {/* 리뷰목록 */}
     {children}
