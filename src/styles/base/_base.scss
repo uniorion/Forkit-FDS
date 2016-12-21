@@ -12,3 +12,5 @@ html {
 body {
   @include font(family $base-font-family);
 }
+
+@media (max-width:400px){html{font-size:8px;}}

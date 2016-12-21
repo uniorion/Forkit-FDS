@@ -9,6 +9,7 @@ import Condition from '../components/Search/Condition';
 import RestaurantList from '../components/Search/RestaurantList';
 import RestaurantItem from '../components/Search/RestaurantItem';
 import Pager from '../components/Pager/Pager';
+import Spinner from '../components/Common/Spinner';
 
 
 class Search extends Component
@@ -68,6 +69,7 @@ class Search extends Component
             </RestaurantList>
           </main>
         </div>
+        <Spinner isFetching={this.props.isFetching} />
       </div>
     );
   }

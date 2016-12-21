@@ -64,6 +64,9 @@
       display: inline-block;
       @include font(size 1.4rem);
       @include padding(right .6em bottom 1.5em);
+      @include mobile() {
+        @include padding(right .6em bottom 1em);
+      }
     }
     dt {
       width: 20px;
