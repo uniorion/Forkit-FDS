@@ -49,6 +49,15 @@ export default class Map extends Component {
   }
 
   componentDidUpdate() {
+    
+  }
+
+  componentWillUnmount() {
+
+  }
+
+  render() {
+    
     let bounds = new google.maps.LatLngBounds();
 
     if (this._timeoutId) {
@@ -72,13 +81,7 @@ export default class Map extends Component {
       this._map.fitBounds(bounds);
       this._timeoutId = null;
     }, 100);
-  }
 
-  componentWillUnmount() {
-
-  }
-
-  render() {
     return (
       <GoogleMapComponent
         containerElement={

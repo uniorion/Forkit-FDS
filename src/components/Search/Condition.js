@@ -21,7 +21,7 @@ const Condition = ({queryParams, onChangeOrdering}) => (
       </div>
     </div>
     <div className="row">
-      <ul className="cell-d-1-1">
+      <ul className="cell-d-1-1 m-hidden">
         <li><a className="active" href="">전체 (1234)</a></li>
         <li><a href="">한식 (23)</a></li>
         <li><a href="">분식 (25)</a></li>

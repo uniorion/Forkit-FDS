@@ -26,6 +26,14 @@
 .footer {
   width: 100%;
   height: $footer-height-desktop;
+  background: $brand-sub;
+  box-sizing: border-box;
+  @include padding(left 1.4rem right 1.4rem);
+}
+
+.footer-content {
+  margin: 0 auto;
+  height: 100%;
 }
 
 .container {
