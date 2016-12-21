@@ -5,7 +5,7 @@ import PhotoCarousel from '../components/PhotoCarousel/PhotoCarousel';
 import RestaurantInfo from '../components/Restaurant/RestaurantInfo';
 import Spinner from '../components/Common/Spinner';
 import * as RestaurantActions from '../actions/restaurant';
-import { Link } from 'react-router';
+// import { Link } from 'react-router';
 import ReviewList from '../components/Review/ReviewList';
 import ReviewItem from '../components/Review/ReviewItem';
 

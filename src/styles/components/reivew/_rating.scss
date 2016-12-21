@@ -1,0 +1,16 @@
+.rating {
+  display: inline-block;
+  font-size: 1.6rem;
+}
+
+.rating span {
+  position: relative;
+  color: $brand-main;
+}
+
+.rating-on:before {
+  content: "\2605";
+  position: absolute;
+  left: 0;
+  color: $brand-main;
+}
