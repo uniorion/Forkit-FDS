@@ -73,6 +73,8 @@
 
 .restaurant-map {
   height: 295px;
+  box-sizing: border-box;
+  padding-left: 10px;
 }
 
 @include desktop {

@@ -1,6 +1,43 @@
+.review-item {
+  display: flex;
+  border-bottom: 1px solid $horizen-divider;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.review-item:last-child {
+  border-bottom: 0px;
+}
+
+.review-user img {
+  border-radius: 50%;
+}
+
+.review-content {
+  position: relative;
+  h5 {
+    font-size: 1.8rem;
+    line-height: 1.8;
+  }
+  p {
+    line-height: 1.4em;
+  }
+}
+
+.review-item-btn-wrap {
+  position: absolute;
+  top: 0;
+  right: 0;
+  button {
+    width: 80px;
+  }
+}
+
 .review-item-img-list {
+  margin-top: 10px;
   display: flex; 
   li{
+    margin: 10px;
     flex: 0 0 13%;
     height: 8.5vw;
   }
@@ -9,3 +46,4 @@
     height: 100%;
   }
 }
+
