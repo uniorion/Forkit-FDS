@@ -8,6 +8,8 @@
 @import 'search/map';
 @import 'pager/pager';
 @import 'common/spinner';
+@import 'common/header';
+@import 'common/user-info';
 
 .button {
   margin: 0 0.5rem;
@@ -16,8 +18,7 @@
   font-size: 1.2rem;
   font-weight: bold;
   color: $brand-main;
-  padding-top: 0.5rem;
-  @include size(8rem 2.6rem);
+  height: 2.6rem;
   i{
     font-weight: 400;
   }

@@ -29,14 +29,15 @@ class SearchBar extends Component {
   }
 
   render() {
-    return (<div>
+    return (<div className={this.props.className}>
               <input 
-                type="text" 
+                type="search" 
                 placeholder="지역, 음식, 또는 음식점 이름"
                 value={this.state.searchKeywordValue}
                 onKeyPress={this.handleKeyPress.bind(this)}
                 onChange={this.handleChange.bind(this)}
               />
+              <button><i className="fa fa-search" aria-hidden="true"></i></button>
             </div>
     );
   }

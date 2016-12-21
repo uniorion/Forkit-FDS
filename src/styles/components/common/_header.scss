@@ -1,0 +1,49 @@
+.header-content .row {
+  height: 100%;
+  align-items: center;
+}
+
+.header-logo-wrap {
+  a {
+    display: inline-flex;
+    height: 30px;
+    align-items: flex-end;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+  }
+  img {
+    width: 30px;
+    height: 30px;
+  }
+  span {
+    display: none;
+  }
+  @media screen and (min-width: 800px) {
+    span {
+      display: inline;
+    }
+  }
+} 
+
+.header-search {
+  box-sizing: border-box;
+  display: flex;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  background: #fff;
+  input[type="search"] {
+    padding-left: 10px;
+    flex: 1 1 auto;
+    height: 28px;
+    border: 0px;
+    border-radius: 5px;
+  }
+  button {
+    flex: 0 0 30px;
+    color: #fff;
+    background: $brand-main;
+    border: 1px solid #fff;
+    border-radius: 5px;
+  }
+}
